@@ -416,7 +416,7 @@ export function ContactForm() {
               Serviços Desejados <span className="text-red-400">*</span>
             </span>
             <p className="text-xs text-ivory/60 font-sans">
-              Selecione os itens para o pacote personalizado. Marcar "Evento completo" engloba todas as etapas:
+              Selecione os itens para o pacote personalizado. Marcar &quot;Evento completo&quot; engloba todas as etapas:
             </p>
 
             <div className="flex flex-wrap gap-2.5 pt-1">

@@ -37,7 +37,7 @@ export function Photo({
     manifestData = getImage(id);
   }
 
-  const resolvedSrc = customSrc || manifestData?.src || "/images/hero/hero-main.jpg";
+  const resolvedSrc = customSrc || manifestData?.src || "/images/hero/hero-main.webp";
   const resolvedAlt = customAlt || manifestData?.alt || "Leandro Santana Cerimonial";
   const resolvedFoco = customFoco || manifestData?.foco || "center center";
   const resolvedRatio = aspectRatio || manifestData?.proporcao || "4:3";

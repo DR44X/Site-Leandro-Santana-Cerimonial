@@ -84,7 +84,7 @@ export default function HomePage() {
                   Com a sólida trajetória construída na <strong className="text-gold font-normal">DeCasa</strong> como alicerce, inauguramos uma fase marcada por um atendimento ainda mais exclusivo e autoral, cuidando pessoalmente da assessoria, gastronomia, cenografia e produção de cada detalhe.
                 </p>
                 <p className="text-sm text-gold/80 italic font-serif pt-1">
-                  "Não produzimos apenas eventos. Criamos memórias sensoriais que permanecem para sempre na memória dos seus convidados."
+                  &ldquo;Não produzimos apenas eventos. Criamos memórias sensoriais que permanecem para sempre na memória dos seus convidados.&rdquo;
                 </p>
               </div>
 
@@ -166,7 +166,7 @@ export default function HomePage() {
 
           {/* Grid Editorial de Serviços */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {servicesData.map((servico, idx) => (
+            {servicesData.map((servico) => (
               <ServiceCard
                 key={servico.id}
                 id={servico.id}
@@ -175,7 +175,6 @@ export default function HomePage() {
                 tagline={servico.tagline}
                 description={servico.description}
                 imageId={servico.imageId}
-                isWide={idx === 2} // O 3º card é mais largo para quebrar o ritmo editorial
               />
             ))}
           </div>

@@ -6,7 +6,6 @@ export interface EventCategory {
   bannerSubtitle: string;
   commercialText: string[];
   topics?: string[];
-  topicsAreSuggested?: boolean; // True para Aniversários e Confraternizações
   hasGallery: boolean;
   galleryImageIds?: string[];
   relatedServices?: string[];
@@ -25,6 +24,14 @@ export const eventCategories: EventCategory[] = [
       "O casamento é a realização de um sonho a dois. Na Leandro Santana Cerimonial, cada detalhe é planejado com atenção meticulosa, respeitando a identidade do casal e traduzindo suas expectativas em uma atmosfera acolhedora e cinematográfica.",
       "Coordenamos todas as etapas: desde a concepção do cortejo cerimonial, a ambientação floral e a iluminação cênica, até a alta gastronomia do buffet e a energia contagiante da pista de dança. Nossa assessoria garante total tranquilidade aos noivos e familiares.",
       "Com planejamento rigoroso e presença executiva ativa em todo o evento, transformamos o seu 'sim' em uma memória inesquecível.",
+    ],
+    topics: [
+      "Assessoria e cerimonial completo do cortejo à recepção",
+      "Projeto cenográfico e ambientação floral personalizada",
+      "Buffet contemporâneo com alta gastronomia e serviço volante",
+      "Bar de drinks autorais e carta personalizada para os noivos",
+      "Sonorização linear de alta fidelidade e iluminação cênica intimista",
+      "Gestão minuciosa de cronograma e coordenação executiva de bastidores",
     ],
     hasGallery: true,
     galleryImageIds: ["galeria-casamento-01", "galeria-casamento-02", "galeria-casamento-03"],
@@ -135,7 +142,6 @@ export const eventCategories: EventCategory[] = [
       "Celebrar aniversários é honrar histórias e reunir gerações. Sejam comemorações intimistas em lounges exclusivos ou grandes festas de aniversário de 30, 40, 50, 60 anos ou mais, planejamos cada detalhe com extremo bom gosto.",
       "Proporcionamos uma experiência fluida para você ser o verdadeiro convidado da sua própria festa, saboreando um cardápio refinado e momentos espontâneos de pura alegria.",
     ],
-    // TODO: CONFIRMAR COM O CLIENTE - Tópicos sugeridos conforme Seção 10
     topics: [
       "Experiências personalizadas e roteiros sob medida",
       "Decoração exclusiva com iluminação aconchegante",
@@ -143,7 +149,6 @@ export const eventCategories: EventCategory[] = [
       "Cerimonial e coordenação de bastidores",
       "Estrutura com som ambiente e iluminação decorativa",
     ],
-    topicsAreSuggested: true,
     hasGallery: true,
     galleryImageIds: ["galeria-momentos-01", "galeria-decoracao-03"],
     relatedServices: [
@@ -166,7 +171,6 @@ export const eventCategories: EventCategory[] = [
       "As confraternizações celebram conquistas e renovam energias. Desenhamos ambientes envolventes que estimulam a convivência harmônica e o lazer com sofisticação.",
       "Com planejamento detalhado de espaços, serviço ágil de buffet e bar, e entretenimento musical personalizado, criamos a atmosfera perfeita para confraternizações inesquecíveis.",
     ],
-    // TODO: CONFIRMAR COM O CLIENTE - Tópicos sugeridos conforme Seção 10
     topics: [
       "Planejamento logístico e acolhimento receptivo",
       "Ambientação agradável com áreas de estar e lounge",
@@ -174,7 +178,6 @@ export const eventCategories: EventCategory[] = [
       "Estrutura completa com mobiliário e climatização",
       "Entretenimento interativo, shows ao vivo e som de qualidade",
     ],
-    topicsAreSuggested: true,
     hasGallery: true,
     galleryImageIds: ["galeria-momentos-02", "galeria-momentos-03"],
     relatedServices: [

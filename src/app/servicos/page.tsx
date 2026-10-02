@@ -20,7 +20,7 @@ export default function ServicosPage() {
         eyebrow="Excelência Operacional"
         title="Nossos Serviços"
         subtitle="Uma estrutura integrada de alta gastronomia, assessoria, cenografia e entretenimento para criar celebrações perfeitas em Salvador."
-        imageSrc="/images/hero/hero-main.jpg"
+        imageSrc="/images/hero/hero-main.webp"
       />
 
       {/* Índice Rápido Editorial */}
@@ -91,7 +91,7 @@ export default function ServicosPage() {
                       {servico.title}
                     </h2>
                     <p className="font-serif text-lg text-gold/90 italic pt-1">
-                      "{servico.tagline}"
+                      &ldquo;{servico.tagline}&rdquo;
                     </p>
                   </div>
 

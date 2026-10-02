@@ -66,7 +66,7 @@ export default function QuemSomosPage() {
         eyebrow="Nossa Trajetória"
         title="Quem Somos"
         subtitle="Dedicados à arte de transformar celebrações em memórias eternas com elegância e assinatura própria."
-        imageSrc="/images/hero/hero-main.jpg"
+        imageSrc="/images/hero/hero-main.webp"
       />
 
       {/* História da Marca */}
@@ -113,7 +113,7 @@ export default function QuemSomosPage() {
                   Hoje, em uma nova e madura fase de sua carreira, a marca própria <strong className="text-ivory font-normal">Leandro Santana Cerimonial</strong> expressa a síntese dessa vivência: um atendimento estritamente personalizado, onde cada cliente dialoga diretamente com quem pensa e executa sua festa.
                 </p>
                 <p className="text-sm text-gold/90 italic font-serif pt-2 border-l-2 border-gold/40 pl-4">
-                  "Nosso compromisso é permitir que você aproveite cada instante como o convidado de honra da sua própria história, enquanto nós cuidamos de cada compasso nos bastidores."
+                  &ldquo;Nosso compromisso é permitir que você aproveite cada instante como o convidado de honra da sua própria história, enquanto nós cuidamos de cada compasso nos bastidores.&rdquo;
                 </p>
               </div>
 

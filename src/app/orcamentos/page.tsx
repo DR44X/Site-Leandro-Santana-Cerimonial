@@ -18,7 +18,7 @@ export default function OrcamentosPage() {
         eyebrow="Planejamento Personalizado"
         title="Solicite seu Orçamento"
         subtitle="Preencha os detalhes da sua celebração e receba um atendimento ágil e dedicado da nossa equipe especializada."
-        imageSrc="/images/hero/hero-secondary.jpg"
+        imageSrc="/images/hero/hero-secondary.webp"
       />
 
       {/* Seção Principal do Formulário */}

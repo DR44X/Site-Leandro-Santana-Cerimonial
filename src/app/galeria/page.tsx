@@ -17,7 +17,7 @@ export default function GaleriaPage() {
         eyebrow="Portfólio & Memórias"
         title="Nossa Galeria"
         subtitle="Uma imersão visual nos momentos inesquecíveis, cenografias suntuosas e detalhes que encantam os convidados."
-        imageSrc="/images/hero/hero-main.jpg"
+        imageSrc="/images/hero/hero-main.webp"
       />
 
       {/* Seção Principal da Galeria */}

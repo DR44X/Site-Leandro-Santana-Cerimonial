@@ -15,8 +15,5 @@ dist/
 *.log
 .DS_Store
 Thumbs.db
-*.mp4
 cada de festa/
-
-*.mp4
-cada de festa/
+!public/videos/hero.mp4

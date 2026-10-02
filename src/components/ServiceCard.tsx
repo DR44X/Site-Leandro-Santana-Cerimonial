@@ -75,7 +75,7 @@ export function ServiceCard({
 
           {/* Tagline / Frase de Impacto */}
           <p className="mt-2 text-xs sm:text-sm font-serif italic text-gold/90 leading-snug">
-            "{tagline}"
+            &ldquo;{tagline}&rdquo;
           </p>
 
           {/* Descrição */}

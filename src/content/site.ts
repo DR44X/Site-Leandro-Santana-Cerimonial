@@ -18,12 +18,10 @@ export interface SiteConfig {
     city: string;
     state: string;
     zipCode: string;
-    // TODO: CONTEÚDO REAL - confirmar complemento "Pavimento" com o cliente
-    note: string;
+    note?: string;
   };
   cnpj: string;
   social: {
-    // TODO: CONTEÚDO REAL - confirmar se @decasafestas é o perfil oficial permanente a linkar
     instagram: string;
     instagramUser: string;
     whatsapp: string;
@@ -65,11 +63,10 @@ export const siteConfig: SiteConfig = {
     city: "Salvador",
     state: "BA",
     zipCode: "40.261-060",
-    note: "Confirmar complemento 'Pavimento' com o cliente", // TODO: CONTEÚDO REAL
   },
   cnpj: "59.814.115/0001-62",
   social: {
-    instagram: "https://www.instagram.com/decasafestas", // TODO: CONTEÚDO REAL - verificar perfil oficial definitivo
+    instagram: "https://www.instagram.com/decasafestas",
     instagramUser: "@decasafestas",
     whatsapp: "https://wa.me/5571983216686",
   },
@@ -89,13 +86,14 @@ export const siteConfig: SiteConfig = {
     { label: "Orçamentos", href: "/orcamentos" },
     { label: "Contato", href: "/contato" },
   ],
-  // Menu do rodapé com os 6 itens exatos do briefing do cliente (Seção 15)
+  // Menu do rodapé incluindo Orçamentos para acesso completo
   footerNavigation: [
     { label: "Home", href: "/" },
     { label: "Quem Somos", href: "/quem-somos" },
     { label: "Eventos", href: "/eventos" },
     { label: "Serviços", href: "/servicos" },
     { label: "Galeria", href: "/galeria" },
+    { label: "Orçamentos", href: "/orcamentos" },
     { label: "Contato", href: "/contato" },
   ],
 };

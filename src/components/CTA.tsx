@@ -23,7 +23,7 @@ export function CTA({
       {/* Imagem de Fundo Escurecida */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/hero-secondary.jpg"
+          src="/images/hero/hero-secondary.webp"
           alt="Brinde de celebração e taças em comemoração inesquecível"
           fill
           className="object-cover object-center opacity-30"

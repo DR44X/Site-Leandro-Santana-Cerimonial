@@ -121,14 +121,6 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
                 subtitle="Etapas e elementos coordenados para garantir o sucesso absoluto da festa."
                 className="mb-0"
               />
-
-              {evento.topicsAreSuggested && (
-                <div className="self-start md:self-end">
-                  <span className="text-[10px] uppercase tracking-widest text-gold/70 border border-gold/30 px-3 py-1 bg-espresso-dark">
-                    // TODO: CONFIRMAR COM O CLIENTE
-                  </span>
-                </div>
-              )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

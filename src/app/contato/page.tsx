@@ -24,7 +24,7 @@ export default function ContatoPage() {
         eyebrow="Canais Oficiais"
         title="Fale Conosco"
         subtitle="Estamos à disposição para receber você, tirar dúvidas e iniciar o planejamento da sua festa dos sonhos."
-        imageSrc="/images/hero/hero-main.jpg"
+        imageSrc="/images/hero/hero-main.webp"
       />
 
       {/* Conteúdo Principal: Dados de Contato e Formulário */}
@@ -84,11 +84,8 @@ export default function ContatoPage() {
                   <p className="text-sm text-ivory/90 leading-relaxed">
                     {siteConfig.address.full}
                   </p>
-                  <p className="text-xs text-ivory/50 pt-2 border-t border-gold/15">
+                  <p className="text-xs text-ivory/70 pt-2 border-t border-gold/15">
                     CNPJ: {siteConfig.cnpj}
-                  </p>
-                  <p className="text-[10px] text-gold/60 italic pt-1">
-                    // TODO: CONFIRMAR COMPLEMENTO "PAVIMENTO" COM O CLIENTE
                   </p>
                 </div>
 

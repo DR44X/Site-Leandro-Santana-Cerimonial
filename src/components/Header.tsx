@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/content/site";
@@ -11,6 +11,10 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
+  const wasOpenRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +54,48 @@ export function Header() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isMobileMenuOpen]);
 
+  // Focus trap no menu mobile e retorno de foco ao fechar
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      wasOpenRef.current = true;
+      const menuEl = mobileMenuRef.current;
+      if (!menuEl) return;
+      const focusableEls = menuEl.querySelectorAll<HTMLElement>(
+        'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusableEls.length > 0) {
+        focusableEls[0].focus();
+      }
+
+      const handleTabKey = (e: KeyboardEvent) => {
+        if (e.key !== "Tab" || !menuEl) return;
+        const currentFocusables = menuEl.querySelectorAll<HTMLElement>(
+          'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        );
+        if (currentFocusables.length === 0) return;
+        const first = currentFocusables[0];
+        const last = currentFocusables[currentFocusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            last.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === last) {
+            first.focus();
+            e.preventDefault();
+          }
+        }
+      };
+
+      window.addEventListener("keydown", handleTabKey);
+      return () => window.removeEventListener("keydown", handleTabKey);
+    } else if (wasOpenRef.current) {
+      hamburgerButtonRef.current?.focus();
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       <header
@@ -57,24 +103,24 @@ export function Header() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
           isScrolled
             ? "bg-ink/90 backdrop-blur-md border-b border-gold/15 py-3 shadow-lg"
-            : "bg-gradient-to-b from-ink/80 via-ink/40 to-transparent py-5 md:py-6"
+            : "bg-gradient-to-b from-ink/80 via-ink/40 to-transparent py-4 sm:py-5 md:py-6"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo / Monograma */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-4"
+            className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-4 shrink-0"
             aria-label="Leandro Santana Cerimonial - Página Inicial"
           >
-            <div className="w-10 h-10 border border-gold/60 group-hover:border-gold flex items-center justify-center bg-espresso/50 transition-colors">
-              <span className="font-serif text-lg tracking-wider text-gold font-semibold">LS</span>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 border border-gold/60 group-hover:border-gold flex items-center justify-center bg-espresso/50 transition-colors shrink-0">
+              <span className="font-serif text-base sm:text-lg tracking-wider text-gold font-semibold">LS</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-base sm:text-lg tracking-wider text-ivory group-hover:text-gold transition-colors font-medium">
+              <span className="font-serif text-sm sm:text-base lg:text-lg tracking-wider text-ivory group-hover:text-gold transition-colors font-medium whitespace-nowrap">
                 LEANDRO SANTANA
               </span>
-              <span className="text-[9px] tracking-widest text-gold uppercase font-light -mt-1">
+              <span className="text-[8px] sm:text-[9px] tracking-widest text-gold uppercase font-light -mt-0.5 sm:-mt-1 whitespace-nowrap">
                 Cerimonial & Eventos
               </span>
             </div>
@@ -111,54 +157,57 @@ export function Header() {
             })}
           </nav>
 
-          {/* Botão Fixo no Topo: SOLICITE SEU ORÇAMENTO */}
-          <div className="hidden sm:flex items-center gap-4">
+          {/* Ações no Topo: Botão Fixo de Orçamento & Hambúrguer */}
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <Button
               href="/orcamentos"
               variant="outline"
               size="sm"
-              className="border-gold/60 text-gold hover:bg-gold hover:text-ink text-[11px] tracking-widest uppercase py-2 px-5"
+              className="border-gold/60 text-gold hover:bg-gold hover:text-ink text-[10px] sm:text-[11px] tracking-wider sm:tracking-widest uppercase py-1.5 px-3 sm:py-2 sm:px-5 shrink-0 min-h-[38px] flex items-center"
             >
-              Solicite seu orçamento
+              <span className="hidden sm:inline">Solicite seu orçamento</span>
+              <span className="sm:hidden">Orçamento</span>
             </Button>
-          </div>
 
-          {/* Botão Hambúrguer Mobile */}
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-ivory hover:text-gold focus-visible:outline-2 focus-visible:outline-gold rounded"
-            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            {/* Botão Hambúrguer Mobile */}
+            <button
+              ref={hamburgerButtonRef}
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-ivory hover:text-gold focus-visible:outline-2 focus-visible:outline-gold rounded min-w-[44px] min-h-[44px] flex items-center justify-center shrink-0"
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4 7h16M4 12h16M4 17h16"
-                />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M4 7h16M4 12h16M4 17h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </header>
 
       {/* Menu Mobile em Tela Cheia */}
       <div
+        ref={mobileMenuRef}
         className={cn(
           "fixed inset-0 z-40 bg-ink/98 backdrop-blur-xl lg:hidden transition-all duration-500 flex flex-col justify-between p-6 sm:p-10 pt-24",
           isMobileMenuOpen

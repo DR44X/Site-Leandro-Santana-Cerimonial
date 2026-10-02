@@ -19,7 +19,7 @@ export default function EventosPage() {
         eyebrow="Celebrações Exclusivas"
         title="Nossos Eventos"
         subtitle="Cada ocasião possui um ritmo, uma emoção e uma identidade única. Conheça as categorias que transformamos em momentos inesquecíveis."
-        imageSrc="/images/hero/hero-secondary.jpg"
+        imageSrc="/images/hero/hero-secondary.webp"
       />
 
       {/* Grid com as 6 Categorias */}

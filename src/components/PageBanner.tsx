@@ -15,7 +15,7 @@ export function PageBanner({
   eyebrow,
   title,
   subtitle,
-  imageSrc = "/images/hero/hero-main.jpg",
+  imageSrc = "/images/hero/hero-main.webp",
   imageAlt = "Leandro Santana Cerimonial",
   className,
 }: PageBannerProps) {

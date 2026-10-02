@@ -82,7 +82,7 @@ export function Footer() {
                 <strong className="text-gold/90 font-normal">Endereço:</strong>{" "}
                 {siteConfig.address.full}
               </p>
-              <p className="text-xs text-ivory/50 pt-1">
+              <p className="text-xs text-ivory/75 pt-1">
                 CNPJ: {siteConfig.cnpj}
               </p>
             </div>
@@ -125,7 +125,7 @@ export function Footer() {
         </div>
 
         {/* Linha Final com Copyright e ano dinâmico */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/50 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ivory/75 gap-4">
           <p>© {currentYear} Leandro Santana Cerimonial. Todos os direitos reservados.</p>
           <p className="tracking-wide">
             Salvador / BA • Cerimonial, Buffet, Decoração & Produção

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/Button";
 
@@ -21,42 +21,28 @@ export function Hero({
   secondaryCtaLabel = "Conheça nossos eventos",
   secondaryCtaHref = "/eventos",
 }: HeroProps) {
-  const [videoAvailable, setVideoAvailable] = useState(false);
-
-  useEffect(() => {
-    // Verifica disponibilidade do vídeo local de forma não obstrutiva
-    const checkVideo = async () => {
-      try {
-        const res = await fetch("/videos/hero.mp4", { method: "HEAD" });
-        if (res.ok) {
-          setVideoAvailable(true);
-        }
-      } catch {
-        setVideoAvailable(false);
-      }
-    };
-    checkVideo();
-  }, []);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   return (
     <section className="relative w-full h-[100svh] min-h-[640px] flex items-end pb-16 md:pb-24 lg:pb-28 overflow-hidden bg-ink">
       {/* Background: Vídeo ou Imagem com Ken Burns sutil */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {videoAvailable ? (
+        {!videoFailed ? (
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/images/hero/hero-main.jpg"
-            className="w-full h-full object-cover object-center scale-105"
+            poster="/images/hero/hero-main.webp"
+            className="w-full h-full object-cover object-center scale-105 transition-opacity duration-1000"
+            onError={() => setVideoFailed(true)}
           >
             <source src="/videos/hero.mp4" type="video/mp4" />
           </video>
         ) : (
           <div className="relative w-full h-full animate-ken-burns">
             <Image
-              src="/images/hero/hero-main.jpg"
+              src="/images/hero/hero-main.webp"
               alt="Salão com arranjos florais e iluminação cinematográfica para evento exclusivo"
               fill
               priority
