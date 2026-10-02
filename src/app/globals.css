@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0B0908;
+  --espresso: #2A1D17;
+  --ivory: #F6F0E6;
+  --champagne: #E8D8BC;
+  --nude: #D9BFA9;
+  --gold: #B8975A;
+  --gold-rgb: 184, 151, 90;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+    background-color: var(--ink);
+    color: var(--ivory);
+    font-family: var(--font-inter), sans-serif;
+  }
+
+  body {
+    background-color: var(--ink);
+    color: var(--ivory);
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    selection-background-color: var(--gold);
+  }
+
+  ::selection {
+    background-color: #B8975A;
+    color: #0B0908;
+  }
+
+  /* Acessibilidade: foco visível */
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+}
+
+/* Grão fotográfico editorial para seções escuras (< 4% de opacidade) */
+.bg-grain {
+  background-image: radial-gradient(rgba(232, 216, 188, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Moldura em arco de assinatura */
+.arch-frame {
+  border-radius: 260px 260px 0 0;
+  overflow: hidden;
+}
+
+.arch-frame-sm {
+  border-radius: 140px 140px 0 0;
+  overflow: hidden;
+}
+
+/* Respeito a preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utilitários de texto e tipografia editorial */
+.font-serif-italic {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-style: italic;
+}

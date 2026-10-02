@@ -1,0 +1,22 @@
+# dependências
+node_modules/
+
+# builds e caches do Next.js
+.next/
+out/
+build/
+dist/
+
+# variáveis de ambiente
+.env
+.env*.local
+
+# ficheiros de sistema e logs
+*.log
+.DS_Store
+Thumbs.db
+*.mp4
+cada de festa/
+
+*.mp4
+cada de festa/
