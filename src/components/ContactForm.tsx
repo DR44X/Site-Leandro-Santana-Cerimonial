@@ -220,7 +220,7 @@ export function ContactForm() {
           </h3>
 
           <p className="text-sm text-ivory/70 max-w-md mx-auto font-sans leading-relaxed">
-            Seus dados foram registrados com sucesso. Para um atendimento ainda mais rápido com a nossa equipe comercial, continue a conversa diretamente no WhatsApp com seu orçamento já estruturado:
+            Sua solicitação foi registrada com sucesso! Para concluir o atendimento e receber seu orçamento, clique no botão abaixo e envie sua solicitação pelo WhatsApp. Nossa equipe falará com você por lá:
           </p>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -430,13 +430,12 @@ export function ContactForm() {
                     key={servico}
                     type="button"
                     onClick={() => handleServiceToggle(servico)}
-                    className={`px-4 py-2.5 text-xs font-sans rounded-full transition-all duration-300 border min-h-[44px] flex items-center gap-2 ${
-                      isSelected
+                    className={`px-4 py-2.5 text-xs font-sans rounded-full transition-all duration-300 border min-h-[44px] flex items-center gap-2 ${isSelected
                         ? "bg-gold text-ink border-gold font-medium shadow"
                         : isFullEventActive
-                        ? "bg-gold/20 text-gold border-gold/40"
-                        : "bg-espresso-dark/60 text-ivory/80 border-gold/20 hover:border-gold/50"
-                    }`}
+                          ? "bg-gold/20 text-gold border-gold/40"
+                          : "bg-espresso-dark/60 text-ivory/80 border-gold/20 hover:border-gold/50"
+                      }`}
                   >
                     <span>{isSelected ? "✓" : "+"}</span>
                     <span>{servico}</span>
