@@ -53,13 +53,13 @@ export function MiniFAQ({
   return (
     <section className={cn("py-16 md:py-24 bg-espresso-dark border-t border-gold/20 relative overflow-hidden bg-grain", className)}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-12 reveal">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="h-[1px] w-6 bg-gold" />
+            <span className="h-[1px] w-8 bg-gold gold-line-draw origin-right" />
             <span className="text-[11px] uppercase tracking-widest text-gold font-sans font-medium">
               {eyebrow}
             </span>
-            <span className="h-[1px] w-6 bg-gold" />
+            <span className="h-[1px] w-8 bg-gold gold-line-draw origin-left" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl text-ivory font-normal">
             {title}
@@ -69,7 +69,7 @@ export function MiniFAQ({
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3 reveal-stagger">
           {items.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (

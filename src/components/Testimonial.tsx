@@ -11,7 +11,7 @@ export function Testimonial({ className }: TestimonialProps) {
 
   return (
     <section className={cn("py-20 md:py-28 bg-espresso border-y border-gold/20 relative overflow-hidden bg-grain", className)}>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
         {/* Aspas Decorativas em Dourado Suave */}
         <div className="font-serif text-6xl sm:text-7xl lg:text-8xl text-gold/30 leading-none select-none -mb-6 sm:-mb-8">
           “
@@ -24,7 +24,7 @@ export function Testimonial({ className }: TestimonialProps) {
           </blockquote>
 
           <div className="pt-4 flex flex-col items-center justify-center space-y-1">
-            <span className="h-[1px] w-12 bg-gold/50 mb-3" />
+            <span className="h-[1px] w-12 bg-gold/50 mb-3 gold-line-draw origin-center" />
             <cite className="font-sans text-xs uppercase tracking-widest text-gold font-medium not-italic">
               {currentTestimonial.author}
             </cite>

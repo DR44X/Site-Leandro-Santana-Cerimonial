@@ -32,12 +32,12 @@ export function CTA({
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/80 to-ink" />
       </div>
 
-      {/* Conteúdo Central */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+      {/* Conteúdo Central com Revelação Suave */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 reveal">
         <span className="text-[11px] uppercase tracking-widest text-gold font-sans font-medium inline-flex items-center gap-2">
-          <span className="h-[1px] w-6 bg-gold" />
+          <span className="h-[1px] w-8 bg-gold gold-line-draw origin-right" />
           Inicie seu Planejamento
-          <span className="h-[1px] w-6 bg-gold" />
+          <span className="h-[1px] w-8 bg-gold gold-line-draw origin-left" />
         </span>
 
         <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-ivory font-normal leading-[1.1] text-balance">

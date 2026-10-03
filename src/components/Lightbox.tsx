@@ -135,7 +135,7 @@ export function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-label={`Visualização em tela cheia: ${currentItem.title}`}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-ink/95 backdrop-blur-md p-4 sm:p-8 outline-none select-none"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-ink/95 backdrop-blur-md p-4 sm:p-8 outline-none select-none animate-lightbox-backdrop"
       onClick={handleBackdropClick}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -184,9 +184,9 @@ export function Lightbox({
         </svg>
       </button>
 
-      {/* Área Central da Imagem */}
+      {/* Área Central da Imagem com Fade + Escala 0.96 -> 1 */}
       <div
-        className="relative max-w-5xl max-h-[75vh] w-full h-full flex flex-col items-center justify-center z-10"
+        className="relative max-w-5xl max-h-[75vh] w-full h-full flex flex-col items-center justify-center z-10 animate-lightbox-dialog"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative w-full h-full flex items-center justify-center">

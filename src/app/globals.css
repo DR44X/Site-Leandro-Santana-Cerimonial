@@ -119,3 +119,240 @@ html.light {
   font-family: var(--font-cormorant), Georgia, serif;
   font-style: italic;
 }
+
+/* ========================================================
+   LENIS SMOOTH SCROLL (Apenas Desktop)
+   ======================================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ========================================================
+   SISTEMA DE ANIMAÇÕES E SUAVIDADE (CERIMONIAL DE LUXO)
+   Easing padrão: cubic-bezier(0.22, 1, 0.36, 1) sem quique
+   ======================================================== */
+:root {
+  --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* 1. Revelação ao rolar (Fade + Subida de 24px) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 750ms var(--ease-luxury), transform 750ms var(--ease-luxury);
+    will-change: opacity, transform;
+  }
+
+  .reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 2. Containers com revelação escalonada (80ms entre cards) */
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 750ms var(--ease-luxury), transform 750ms var(--ease-luxury);
+    will-change: opacity, transform;
+  }
+
+  .reveal-stagger.is-revealed > *:nth-child(1) { transition-delay: 0ms; }
+  .reveal-stagger.is-revealed > *:nth-child(2) { transition-delay: 80ms; }
+  .reveal-stagger.is-revealed > *:nth-child(3) { transition-delay: 160ms; }
+  .reveal-stagger.is-revealed > *:nth-child(4) { transition-delay: 240ms; }
+  .reveal-stagger.is-revealed > *:nth-child(5) { transition-delay: 320ms; }
+  .reveal-stagger.is-revealed > *:nth-child(6) { transition-delay: 400ms; }
+  .reveal-stagger.is-revealed > *:nth-child(7) { transition-delay: 480ms; }
+  .reveal-stagger.is-revealed > *:nth-child(8) { transition-delay: 560ms; }
+  .reveal-stagger.is-revealed > *:nth-child(n+9) { transition-delay: 640ms; }
+
+  .reveal-stagger.is-revealed > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 3. Linhas douradas separadoras que se desenham ao entrar na tela */
+  .gold-line-draw {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 800ms var(--ease-luxury);
+    will-change: transform;
+  }
+
+  .gold-line-draw.is-drawn {
+    transform: scaleX(1);
+  }
+
+  /* 4. Sequência de Entrada do Hero */
+  @keyframes heroFadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-hero-eyebrow {
+    opacity: 0;
+    animation: heroFadeUp 750ms var(--ease-luxury) 100ms forwards;
+  }
+
+  .animate-hero-title {
+    opacity: 0;
+    animation: heroFadeUp 800ms var(--ease-luxury) 250ms forwards;
+  }
+
+  .animate-hero-subtitle {
+    opacity: 0;
+    animation: heroFadeUp 800ms var(--ease-luxury) 400ms forwards;
+  }
+
+  .animate-hero-buttons {
+    opacity: 0;
+    animation: heroFadeUp 800ms var(--ease-luxury) 550ms forwards;
+  }
+
+  /* 5. Zoom Lento e Contínuo no Hero (1.0 -> 1.06) */
+  @keyframes heroZoomSlow {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.06);
+    }
+  }
+
+  .animate-hero-zoom {
+    animation: heroZoomSlow 22s var(--ease-luxury) infinite alternate;
+    will-change: transform;
+  }
+
+  /* 6. Transição de 300ms em Fade entre Páginas */
+  @keyframes pageFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-page-fade {
+    animation: pageFadeIn 300ms var(--ease-luxury) forwards;
+  }
+
+  /* 7. Lightbox: Fade + Escala de 0.96 -> 1 */
+  @keyframes lightboxBackdropFade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes lightboxDialogScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-lightbox-backdrop {
+    animation: lightboxBackdropFade 500ms var(--ease-luxury) forwards;
+  }
+
+  .animate-lightbox-dialog {
+    animation: lightboxDialogScale 600ms var(--ease-luxury) forwards;
+    will-change: transform, opacity;
+  }
+
+  /* 8. Botão WhatsApp: Pulso Discreto a cada 8 Segundos */
+  @keyframes pulseWhatsApp8s {
+    0%, 100% {
+      transform: scale(1);
+    }
+    3% {
+      transform: scale(1.045);
+    }
+    6% {
+      transform: scale(1);
+    }
+    9% {
+      transform: scale(1.045);
+    }
+    12% {
+      transform: scale(1);
+    }
+    15%, 100% {
+      transform: scale(1);
+    }
+  }
+
+  .animate-pulse-8s {
+    animation: pulseWhatsApp8s 8s var(--ease-luxury) infinite;
+    will-change: transform;
+  }
+}
+
+/* ========================================================
+   RESPEITO ESTRITO A PREFERS-REDUCED-MOTION
+   Desliga todas as animações, transições e transforms
+   ======================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .reveal-stagger > *,
+  .gold-line-draw,
+  .animate-hero-eyebrow,
+  .animate-hero-title,
+  .animate-hero-subtitle,
+  .animate-hero-buttons,
+  .animate-hero-zoom,
+  .animate-page-fade,
+  .animate-lightbox-backdrop,
+  .animate-lightbox-dialog,
+  .animate-pulse-8s {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .gold-line-draw {
+    transform: scaleX(1) !important;
+  }
+}

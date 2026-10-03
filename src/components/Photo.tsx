@@ -87,8 +87,8 @@ export function Photo({
           }
         }}
         className={cn(
-          "object-cover transition-all duration-700 ease-out",
-          isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105",
+          "object-cover transition-[opacity,transform] duration-800 ease-luxury",
+          isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-[1.08]",
           imageClassName
         )}
         style={{

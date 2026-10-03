@@ -116,13 +116,13 @@ export function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-out w-full",
+          "fixed top-0 left-0 right-0 z-40 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] w-full",
           isScrolled
-            ? "bg-ink/90 backdrop-blur-md py-2 shadow-md"
-            : "bg-gradient-to-b from-ink/95 via-ink/70 to-transparent py-3 sm:py-3.5"
+            ? "bg-ink/95 backdrop-blur-md py-2.5 sm:py-3 border-b border-gold/20 shadow-xl"
+            : "bg-transparent py-5 sm:py-6 border-b border-transparent"
         )}
       >
-        {/* Navbar com 100% da largura útil, margem de segurança de 1.5rem (px-6 / pr-6 pl-6) e Flexbox justify-between */}
+        {/* Navbar com 100% da largura útil, margem de segurança e Flexbox justify-between */}
         <div className="w-full px-4 sm:px-6 flex items-center justify-between gap-2 lg:gap-3 xl:gap-6">
           {/* Zona 1: Logo / Monograma */}
           <Link
@@ -130,11 +130,11 @@ export function Header() {
             className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-4 shrink-0"
             aria-label="Leandro Santana Cerimonial - Página Inicial"
           >
-            <div className="w-9 h-9 min-w-[36px] min-h-[36px] border border-gold/60 group-hover:border-gold flex items-center justify-center bg-espresso/50 transition-colors shrink-0 rounded">
+            <div className="w-9 h-9 min-w-[36px] min-h-[36px] border border-gold/60 group-hover:border-gold flex items-center justify-center bg-espresso/50 transition-colors duration-500 shrink-0 rounded">
               <span className="font-serif text-sm sm:text-base tracking-wider text-gold font-semibold">LS</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-xs sm:text-sm lg:text-base tracking-wider text-ivory group-hover:text-gold transition-colors font-medium whitespace-nowrap leading-tight">
+              <span className="font-serif text-xs sm:text-sm lg:text-base tracking-wider text-ivory group-hover:text-gold transition-colors duration-500 font-medium whitespace-nowrap leading-tight">
                 LEANDRO SANTANA
               </span>
               <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-gold uppercase font-light whitespace-nowrap">
@@ -143,7 +143,7 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Zona 2: 7 Abas de Navegação com gap compacto e indicador centralizado */}
+          {/* Zona 2: 7 Abas de Navegação com sublinhado animado suave */}
           <nav
             aria-label="Navegação Principal"
             className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-3 shrink-0"
@@ -159,19 +159,23 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative px-2 xl:px-2.5 py-1.5 rounded text-[11px] xl:text-xs 2xl:text-sm uppercase tracking-wider xl:tracking-editorial transition-all duration-200 inline-flex flex-col items-center justify-center whitespace-nowrap focus-visible:outline-2 focus-visible:outline-gold",
+                    "group relative px-2.5 xl:px-3 py-1.5 rounded text-[11px] xl:text-xs 2xl:text-sm uppercase tracking-wider xl:tracking-editorial transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] inline-flex flex-col items-center justify-center whitespace-nowrap focus-visible:outline-2 focus-visible:outline-gold",
                     isActive
-                      ? "text-gold font-medium bg-gold/10"
-                      : "text-ivory/80 hover:text-gold hover:bg-gold/5"
+                      ? "text-gold font-medium"
+                      : "text-ivory/80 hover:text-gold"
                   )}
                 >
-                  <span>{item.label}</span>
-                  {isActive && (
+                  <span className="relative pb-0.5">
+                    {item.label}
+                    {/* Sublinhado animado suave */}
                     <span
-                      className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-gold shrink-0 animate-fade-in"
+                      className={cn(
+                        "absolute left-0 -bottom-0.5 w-full h-[1.5px] bg-gold origin-left transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      )}
                       aria-hidden="true"
                     />
-                  )}
+                  </span>
                 </Link>
               );
             })}

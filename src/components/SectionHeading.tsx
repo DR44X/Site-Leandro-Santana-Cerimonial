@@ -31,7 +31,7 @@ export function SectionHeading({
   };
 
   return (
-    <div className={cn("flex flex-col max-w-3xl mb-12 md:mb-16", alignClasses[align], className)}>
+    <div className={cn("flex flex-col max-w-3xl mb-12 md:mb-16 reveal", alignClasses[align], className)}>
       {/* Linha Editorial: Número + Eyebrow */}
       <div className="flex items-center gap-3 mb-3">
         {number && (
@@ -39,7 +39,7 @@ export function SectionHeading({
             {number}
           </span>
         )}
-        {number && eyebrow && <span className="h-[1px] w-6 bg-gold/40" />}
+        {number && eyebrow && <span className="h-[1px] w-8 bg-gold/50 gold-line-draw" />}
         {eyebrow && (
           <span className="text-[11px] uppercase tracking-widest font-sans font-medium text-gold">
             {eyebrow}
@@ -61,6 +61,14 @@ export function SectionHeading({
           </span>
         )}
       </h2>
+
+      {/* Linha dourada decorativa que se desenha ao entrar na tela */}
+      <div
+        className={cn(
+          "gold-line-draw h-[1px] w-12 sm:w-16 bg-gold/60 mt-4",
+          align === "center" ? "mx-auto origin-center" : align === "right" ? "ml-auto origin-right" : "origin-left"
+        )}
+      />
 
       {/* Subtítulo */}
       {subtitle && (

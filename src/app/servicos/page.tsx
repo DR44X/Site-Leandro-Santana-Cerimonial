@@ -68,7 +68,7 @@ export default function ServicosPage() {
               >
                 {/* Imagem (alternando esquerda/direita) */}
                 <div
-                  className={`lg:col-span-6 relative ${
+                  className={`lg:col-span-6 relative reveal ${
                     isEven ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
@@ -77,7 +77,7 @@ export default function ServicosPage() {
                       id={servico.imageId}
                       aspectRatio="4:3"
                       className="w-full shadow-2xl"
-                      imageClassName="hover:scale-105 transition-transform duration-700"
+                      imageClassName="hover:scale-105 transition-transform duration-700 ease-luxury"
                       sizes="(max-width: 1024px) 100vw, 550px"
                     />
                   </div>
@@ -85,7 +85,7 @@ export default function ServicosPage() {
 
                 {/* Texto e Detalhes */}
                 <div
-                  className={`lg:col-span-6 space-y-6 ${
+                  className={`lg:col-span-6 space-y-6 reveal ${
                     isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >

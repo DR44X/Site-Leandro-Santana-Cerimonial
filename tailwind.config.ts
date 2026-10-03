@@ -68,6 +68,15 @@ const config: Config = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
+      transitionDuration: {
+        "600": "600ms",
+        "750": "750ms",
+        "800": "800ms",
+        "900": "900ms",
+      },
+      transitionTimingFunction: {
+        luxury: "cubic-bezier(0.22, 1, 0.36, 1)",
+      },
     },
   },
   plugins: [],

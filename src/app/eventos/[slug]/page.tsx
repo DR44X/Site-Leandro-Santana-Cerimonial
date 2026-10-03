@@ -96,20 +96,20 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Foto de Destaque com Moldura em Arco */}
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative reveal">
               <div className="arch-frame border border-gold/40 shadow-2xl aspect-[3/4] max-w-[420px] mx-auto">
                 <Photo
                   id={evento.heroImageId}
                   fill
                   className="w-full h-full"
-                  imageClassName="scale-100 hover:scale-105 transition-transform duration-700 ease-out"
+                  imageClassName="scale-100 hover:scale-105 transition-transform duration-700 ease-luxury"
                   sizes="(max-width: 768px) 100vw, 420px"
                 />
               </div>
             </div>
 
             {/* Texto Comercial */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6 reveal">
               <SectionHeading
                 number="01"
                 eyebrow="Planejamento e Condução"
@@ -156,11 +156,11 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
               {evento.topics.map((topic, idx) => (
                 <div
                   key={idx}
-                  className="p-6 bg-espresso-dark/70 border border-gold/20 hover:border-gold/50 transition-all flex items-start gap-4"
+                  className="p-6 bg-espresso-dark/70 border border-gold/20 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-luxury flex items-start gap-4"
                 >
                   <span className="w-8 h-8 rounded-full border border-gold/40 flex items-center justify-center text-xs font-serif text-gold flex-shrink-0 mt-0.5">
                     0{idx + 1}
@@ -186,22 +186,22 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
               subtitle={`Veja registros reais criados para eventos de ${evento.title.toLowerCase()} em Salvador.`}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 reveal-stagger">
               {evento.galleryImageIds.map((imgId, idx) => {
                 const imgData = getImage(imgId);
                 return (
                   <div
                     key={idx}
-                    className="border border-gold/20 hover:border-gold/60 transition-all duration-300 aspect-[3/4] relative overflow-hidden group bg-espresso"
+                    className="border border-gold/20 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-luxury aspect-[3/4] relative overflow-hidden group bg-espresso"
                   >
                     <Photo
                       id={imgId}
                       fill
                       className="w-full h-full"
-                      imageClassName="group-hover:scale-105 transition-transform duration-700"
+                      imageClassName="group-hover:scale-105 transition-transform duration-700 ease-luxury"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-luxury p-6 flex flex-col justify-end">
                       <p className="text-xs text-ivory/90 font-sans">{imgData.alt}</p>
                     </div>
                   </div>
@@ -238,10 +238,10 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
             <div className="pt-8">
               <Link
                 href="/servicos"
-                className="text-xs uppercase tracking-widest text-gold hover:text-ivory inline-flex items-center gap-2 group transition-colors"
+                className="text-xs uppercase tracking-widest text-gold hover:text-ivory inline-flex items-center gap-2 group transition-colors font-sans py-2"
               >
                 <span>Conhecer todos os serviços detalhados</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-luxury">→</span>
               </Link>
             </div>
           </div>

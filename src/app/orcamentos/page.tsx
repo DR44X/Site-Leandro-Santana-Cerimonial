@@ -41,7 +41,7 @@ export default function OrcamentosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Coluna Esquerda: Informações e Vantagens */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 space-y-8 reveal">
               <SectionHeading
                 number="01"
                 eyebrow="Atendimento Exclusivo"
@@ -109,7 +109,7 @@ export default function OrcamentosPage() {
             </div>
 
             {/* Coluna Direita: Formulário de Orçamento Completo */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 reveal">
               <Suspense
                 fallback={
                   <div className="p-12 text-center text-ivory/50 bg-espresso">

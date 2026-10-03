@@ -6,6 +6,8 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { MobileCtaBar } from "@/components/MobileCtaBar";
 import { ThemeProvider } from "@/components/ThemeContext";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { ScrollRevealProvider } from "@/components/ScrollRevealProvider";
 import { siteConfig } from "@/content/site";
 
 const cormorant = Cormorant_Garamond({
@@ -158,30 +160,36 @@ export default function RootLayout({
       </head>
       <body className="font-sans bg-ink text-ivory antialiased selection:bg-gold selection:text-ink min-h-screen flex flex-col">
         <ThemeProvider>
-          {/* Skip Link para acessibilidade */}
-          <a
-            href="#conteudo-principal"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-gold focus:text-ink focus:font-medium focus:outline-none"
-          >
-            Pular para o conteúdo principal
-          </a>
+          {/* Suavidade no scroll com Lenis (Desktop) */}
+          <SmoothScroll />
 
-          {/* Cabeçalho global com menu de 7 itens */}
-          <Header />
+          {/* Gerenciador de revelação ao rolar (IntersectionObserver) */}
+          <ScrollRevealProvider>
+            {/* Skip Link para acessibilidade */}
+            <a
+              href="#conteudo-principal"
+              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-gold focus:text-ink focus:font-medium focus:outline-none"
+            >
+              Pular para o conteúdo principal
+            </a>
 
-          {/* Conteúdo da página */}
-          <main id="conteudo-principal" className="flex-1 w-full pb-14 sm:pb-0">
-            {children}
-          </main>
+            {/* Cabeçalho global com menu de 7 itens */}
+            <Header />
 
-          {/* Botão flutuante WhatsApp com mensagem dinâmica */}
-          <WhatsAppButton />
+            {/* Conteúdo da página */}
+            <main id="conteudo-principal" className="flex-1 w-full pb-14 sm:pb-0">
+              {children}
+            </main>
 
-          {/* Barra fixa de CTA no celular */}
-          <MobileCtaBar />
+            {/* Botão flutuante WhatsApp com mensagem dinâmica */}
+            <WhatsAppButton />
 
-          {/* Rodapé institucional com 4 colunas */}
-          <Footer />
+            {/* Barra fixa de CTA no celular */}
+            <MobileCtaBar />
+
+            {/* Rodapé institucional com 4 colunas */}
+            <Footer />
+          </ScrollRevealProvider>
         </ThemeProvider>
       </body>
     </html>

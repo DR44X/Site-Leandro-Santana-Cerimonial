@@ -54,10 +54,10 @@ export default function ContatoPage() {
             </p>
           </div>
 
-          {/* Grid de 2 colunas no Desktop e 1 no Mobile */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Grid de 2 colunas no Desktop e 1 no Mobile com revelação escalonada */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger">
             {/* Card 1: WhatsApp Comercial */}
-            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold/50 transition-colors duration-300 flex flex-col justify-between space-y-4">
+            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-luxury flex flex-col justify-between space-y-4">
               <div className="space-y-2">
                 <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
                   WhatsApp Comercial
@@ -79,16 +79,16 @@ export default function ContatoPage() {
                   href={siteConfig.phone.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium group"
                 >
                   <span>Iniciar conversa no WhatsApp</span>
-                  <span>↗</span>
+                  <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-luxury">↗</span>
                 </a>
               </div>
             </div>
 
             {/* Card 2: E-mail Institucional */}
-            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold/50 transition-colors duration-300 flex flex-col justify-between space-y-4">
+            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-luxury flex flex-col justify-between space-y-4">
               <div className="space-y-2">
                 <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
                   E-mail Institucional
@@ -106,16 +106,16 @@ export default function ContatoPage() {
               <div className="pt-2">
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium group"
                 >
                   <span>Enviar mensagem por e-mail</span>
-                  <span>↗</span>
+                  <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-luxury">↗</span>
                 </a>
               </div>
             </div>
 
             {/* Card 3: Endereço & Registro com link Google Maps */}
-            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold/50 transition-colors duration-300 flex flex-col justify-between space-y-4">
+            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-luxury flex flex-col justify-between space-y-4">
               <div className="space-y-2">
                 <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
                   Endereço & Registro
@@ -137,16 +137,16 @@ export default function ContatoPage() {
                   href={googleMapsDirectionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium group"
                 >
                   <span>Abrir rota no Google Maps</span>
-                  <span>↗</span>
+                  <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-luxury">↗</span>
                 </a>
               </div>
             </div>
 
             {/* Card 4: Redes Sociais */}
-            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold/50 transition-colors duration-300 flex flex-col justify-between space-y-4">
+            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-luxury flex flex-col justify-between space-y-4">
               <div className="space-y-2">
                 <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
                   Redes Sociais
@@ -168,10 +168,10 @@ export default function ContatoPage() {
                   href={siteConfig.social.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium group"
                 >
                   <span>Seguir no Instagram</span>
-                  <span>↗</span>
+                  <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-luxury">↗</span>
                 </a>
               </div>
             </div>

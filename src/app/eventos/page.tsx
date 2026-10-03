@@ -44,7 +44,7 @@ export default function EventosPage() {
             subtitle="Clique na categoria desejada para conferir o escopo de produção, perguntas frequentes e registros fotográficos."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
             {eventCategories.map((evento, idx) => (
               <EventCard
                 key={evento.slug}

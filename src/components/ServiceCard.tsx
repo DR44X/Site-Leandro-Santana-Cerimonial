@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { Photo } from "@/components/Photo";
 import { cn } from "@/lib/utils";
@@ -24,29 +26,65 @@ export function ServiceCard({
   isWide = false,
   className,
 }: ServiceCardProps) {
+  const cardRef = useRef<HTMLElement>(null);
+  const [parallaxY, setParallaxY] = useState(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (!cardRef.current) return;
+          const rect = cardRef.current.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          if (rect.top < windowHeight && rect.bottom > 0) {
+            const progress = (rect.top - windowHeight / 2) / windowHeight;
+            const offset = Math.max(-12, Math.min(12, progress * 24));
+            setParallaxY(offset);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <article
+      ref={cardRef}
       id={id}
       className={cn(
-        "group relative flex flex-col bg-espresso border border-gold/20 hover:border-gold/60 transition-all duration-500 overflow-hidden",
+        "group relative flex flex-col bg-espresso border border-gold/20 hover:border-gold transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-2xl overflow-hidden",
         isWide ? "md:col-span-2 flex-col md:flex-row" : "flex-col",
         className
       )}
     >
-      {/* Imagem do Serviço */}
+      {/* Imagem do Serviço com parallax leve nas fotos */}
       <div
         className={cn(
           "relative overflow-hidden bg-espresso-dark",
-          isWide ? "w-full md:w-1/2 aspect-[4/3] md:aspect-auto" : "w-full aspect-[3/4]"
+          isWide ? "w-full md:w-1/2 aspect-[4/3] md:aspect-auto min-h-[280px]" : "w-full aspect-[3/4]"
         )}
       >
-        <Photo
-          id={imageId}
-          fill
-          className="w-full h-full"
-          imageClassName="group-hover:scale-105 transition-transform duration-700 ease-out"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+        <div
+          className="w-full h-full scale-105 transition-transform duration-300 ease-out"
+          style={{ transform: `translate3d(0, ${parallaxY}px, 0)` }}
+        >
+          <Photo
+            id={imageId}
+            fill
+            className="w-full h-full"
+            imageClassName="group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent md:hidden" />
       </div>
 
@@ -69,7 +107,7 @@ export function ServiceCard({
           </div>
 
           {/* Título Serifado */}
-          <h3 className="font-serif text-2xl sm:text-3xl text-ivory group-hover:text-champagne transition-colors font-normal">
+          <h3 className="font-serif text-2xl sm:text-3xl text-ivory group-hover:text-champagne transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] font-normal">
             {title}
           </h3>
 
@@ -84,14 +122,16 @@ export function ServiceCard({
           </p>
         </div>
 
-        {/* Link / CTA Discreto */}
+        {/* Link / CTA Discreto com seta deslocando 6px no hover */}
         <div className="mt-6 pt-4 border-t border-gold/15 flex items-center justify-between">
           <Link
             href="/orcamentos"
-            className="text-[11px] uppercase tracking-widest text-gold hover:text-ivory font-medium inline-flex items-center gap-2 group-hover:gap-3 transition-all"
+            className="text-[11px] uppercase tracking-widest text-gold hover:text-ivory font-medium inline-flex items-center gap-2 group-hover:gap-3 transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
           >
             <span>Incluir no orçamento</span>
-            <span>→</span>
+            <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+              →
+            </span>
           </Link>
         </div>
       </div>

@@ -85,13 +85,13 @@ export default function QuemSomosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Imagem com Moldura em Arco */}
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative reveal">
               <div className="arch-frame border border-gold/40 shadow-2xl aspect-[3/4] max-w-[420px] mx-auto">
                 <Photo
                   id="leandro-santana"
                   fill
                   className="w-full h-full"
-                  imageClassName="scale-100 hover:scale-105 transition-transform duration-700 ease-out"
+                  imageClassName="scale-100 hover:scale-105 transition-transform duration-700 ease-luxury"
                   sizes="(max-width: 768px) 100vw, 420px"
                 />
               </div>
@@ -104,7 +104,7 @@ export default function QuemSomosPage() {
             </div>
 
             {/* Texto Histórico */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6 reveal">
               <SectionHeading
                 number="01"
                 eyebrow="Origem e Propósito"
@@ -148,16 +148,16 @@ export default function QuemSomosPage() {
             subtitle="Valores fundamentais que orientam cada decisão estética, operacional e humana da nossa equipe."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
             {ESSENCIA_ITEMS.map((item) => (
               <div
                 key={item.num}
-                className="p-8 bg-espresso-dark/60 border border-gold/20 hover:border-gold/60 transition-all duration-300 relative group"
+                className="p-8 bg-espresso-dark/60 border border-gold/20 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-luxury relative group"
               >
                 <span className="font-serif text-gold text-2xl font-light tracking-widest block mb-4">
                   {item.num}
                 </span>
-                <h3 className="font-serif text-2xl text-ivory group-hover:text-champagne transition-colors">
+                <h3 className="font-serif text-2xl text-ivory group-hover:text-champagne transition-colors duration-500 ease-luxury">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-sm text-ivory/70 font-sans font-light leading-relaxed">
@@ -173,7 +173,7 @@ export default function QuemSomosPage() {
       <section className="py-24 md:py-32 bg-ink border-t border-gold/20 relative overflow-hidden bg-grain">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-6 reveal">
               <SectionHeading
                 number="03"
                 eyebrow="Capacidade Operacional"
@@ -196,13 +196,13 @@ export default function QuemSomosPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-6 relative">
+            <div className="lg:col-span-6 relative reveal">
               <div className="border border-gold/30 p-3 bg-espresso/40">
                 <Photo
                   id="bastidores-evento"
                   aspectRatio="4:3"
                   className="w-full shadow-2xl"
-                  imageClassName="hover:scale-105 transition-transform duration-700"
+                  imageClassName="hover:scale-105 transition-transform duration-700 ease-luxury"
                   sizes="(max-width: 1024px) 100vw, 600px"
                 />
               </div>

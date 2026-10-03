@@ -34,17 +34,17 @@ export function PageBanner({
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-25"
+          className="object-cover object-center opacity-25 animate-hero-zoom"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-espresso-dark via-espresso-dark/80 to-ink/70" />
       </div>
 
       {/* Conteúdo */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl space-y-4 reveal">
           {eyebrow && (
             <div className="flex items-center gap-3">
-              <span className="h-[1px] w-8 bg-gold" />
+              <span className="h-[1px] w-8 bg-gold gold-line-draw" />
               <span className="text-[11px] uppercase tracking-widest text-gold font-sans font-medium">
                 {eyebrow}
               </span>

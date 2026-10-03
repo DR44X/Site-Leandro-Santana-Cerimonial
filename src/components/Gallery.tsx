@@ -75,7 +75,7 @@ export function Gallery({
       )}
 
       {/* Grid Editorial (Mosaico / Masonry) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 reveal-stagger">
         {displayedItems.map((item, index) => {
           const isTall = item.span === "tall";
           const isWide = item.span === "wide";
@@ -86,7 +86,7 @@ export function Gallery({
               type="button"
               onClick={() => handleOpenLightbox(index)}
               className={cn(
-                "group relative block overflow-hidden text-left bg-espresso border border-gold/15 hover:border-gold/60 transition-all duration-500 cursor-pointer focus-visible:outline-2 focus-visible:outline-gold",
+                "group relative block overflow-hidden text-left bg-espresso border border-gold/15 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer focus-visible:outline-2 focus-visible:outline-gold",
                 isWide ? "sm:col-span-2 aspect-[16/9]" : isTall ? "aspect-[3/4]" : "aspect-[4/3]"
               )}
               aria-label={`Ver foto: ${item.title}`}
@@ -95,12 +95,12 @@ export function Gallery({
                 id={item.imageId}
                 fill
                 className="w-full h-full"
-                imageClassName="group-hover:scale-105 transition-transform duration-700 ease-out"
+                imageClassName="group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
 
               {/* Overlay de Hover com Informações */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-end p-6">
                 <span className="text-[10px] uppercase tracking-widest text-gold font-sans font-medium">
                   {item.category.replace("-", " ")}
                 </span>
@@ -112,7 +112,7 @@ export function Gallery({
                 </p>
                 <div className="mt-3 flex items-center gap-2 text-[11px] text-gold uppercase tracking-wider">
                   <span>Ampliar fotografia</span>
-                  <span>↗</span>
+                  <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">↗</span>
                 </div>
               </div>
             </button>

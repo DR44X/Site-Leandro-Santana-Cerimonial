@@ -47,7 +47,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Composição Fotográfica: Moldura em Arco + Foto Menor Sobreposta */}
-            <div className="lg:col-span-6 relative">
+            <div className="lg:col-span-6 relative reveal">
               {/* Foto Principal em Arco (Assinatura Visual) */}
               <div className="arch-frame border border-gold/30 relative aspect-[3/4] max-w-[420px] shadow-2xl">
                 <Photo
@@ -78,7 +78,7 @@ export default function HomePage() {
             </div>
 
             {/* Texto em Coluna Estreita com Título que Invade */}
-            <div className="lg:col-span-6 space-y-6 lg:pl-6">
+            <div className="lg:col-span-6 space-y-6 lg:pl-6 reveal">
               <SectionHeading
                 number="01"
                 eyebrow="Origem e Presença"
@@ -105,7 +105,7 @@ export default function HomePage() {
                   className="text-xs uppercase tracking-widest text-gold hover:text-ivory inline-flex items-center gap-2 group transition-colors font-sans py-2"
                 >
                   <span>Falar diretamente conosco</span>
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">→</span>
                 </Link>
               </div>
             </div>
@@ -131,8 +131,8 @@ export default function HomePage() {
             </Button>
           </div>
 
-          {/* Grid de Cards de Eventos */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* Grid de Cards de Eventos com reveal-stagger */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 reveal-stagger">
             {eventCategories.map((evento, idx) => (
               <EventCard
                 key={evento.slug}
@@ -165,8 +165,8 @@ export default function HomePage() {
             </Button>
           </div>
 
-          {/* Grid Editorial de Serviços */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* Grid Editorial de Serviços com reveal-stagger */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 reveal-stagger">
             {servicesData.map((servico) => (
               <ServiceCard
                 key={servico.id}
