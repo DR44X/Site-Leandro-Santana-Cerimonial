@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { eventCategories } from "@/content/eventos";
+import { blogPosts } from "@/content/blog";
 
 export const dynamic = "force-static";
 
@@ -39,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${siteUrl}/blog/`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
       url: `${siteUrl}/orcamentos/`,
       lastModified: currentDate,
       changeFrequency: "weekly",
@@ -59,5 +66,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...eventRoutes];
+  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${siteUrl}/blog/${post.slug}/`,
+    lastModified: currentDate,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...eventRoutes, ...blogRoutes];
 }

@@ -48,6 +48,43 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [whatsAppLink, setWhatsAppLink] = useState("");
+  const [syncedFromChecklist, setSyncedFromChecklist] = useState<string | null>(null);
+
+  // Listener para sincronização do checklist de planejamento
+  useEffect(() => {
+    const handleChecklistSync = (e: Event) => {
+      const customEvent = e as CustomEvent<{
+        services: string[];
+        itemsCount: number;
+        itemsList: string[];
+        profileName: string;
+      }>;
+      const { services, itemsCount, profileName } = customEvent.detail;
+
+      setFormData((prev) => ({
+        ...prev,
+        servicos: services,
+        tipoEvento:
+          prev.tipoEvento ||
+          (profileName === "Casamento"
+            ? "casamentos"
+            : profileName === "15 Anos"
+            ? "15-anos"
+            : profileName === "Formatura"
+            ? "formaturas"
+            : profileName === "Corporativo"
+            ? "corporativos"
+            : prev.tipoEvento),
+      }));
+
+      setSyncedFromChecklist(
+        `${itemsCount} itens planejados (${profileName}) foram sincronizados no seu orçamento!`
+      );
+    };
+
+    window.addEventListener("syncChecklistToForm", handleChecklistSync);
+    return () => window.removeEventListener("syncChecklistToForm", handleChecklistSync);
+  }, []);
 
   // Atualiza tipoEvento se vier pela URL query
   useEffect(() => {
@@ -206,7 +243,20 @@ export function ContactForm() {
   };
 
   return (
-    <div className="bg-espresso p-6 sm:p-10 md:p-12 border border-gold/30 shadow-2xl relative bg-grain">
+    <div id="formulario-orcamento" className="bg-espresso p-6 sm:p-10 md:p-12 border border-gold/30 shadow-2xl relative bg-grain">
+      {syncedFromChecklist && (
+        <div className="mb-6 p-4 bg-gold/15 border border-gold/40 text-gold flex items-center justify-between text-xs sm:text-sm font-sans animate-fade-in">
+          <span>✓ {syncedFromChecklist}</span>
+          <button
+            type="button"
+            onClick={() => setSyncedFromChecklist(null)}
+            className="text-gold/60 hover:text-gold text-xs uppercase tracking-wider ml-2"
+          >
+            Dispensar
+          </button>
+        </div>
+      )}
+
       {submitted ? (
         <div className="py-12 text-center space-y-6 animate-fade-in" role="alert">
           <div className="w-16 h-16 border-2 border-gold rounded-full flex items-center justify-center mx-auto text-gold">

@@ -48,7 +48,7 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   // ==========================================
   "leandro-santana": {
     id: "leandro-santana",
-    src: "/images/equipe/leandro-santana.webp",
+    src: "/images/equipe/leandro-santana-cerimonial-salvador.webp",
     alt: "Leandro Santana sorrindo com blazer cinza-claro, cerimonialista e produtor de eventos em Salvador",
     categoria: "equipe",
     proporcao: "3:4",
@@ -71,8 +71,8 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   // ==========================================
   "evento-casamentos": {
     id: "evento-casamentos",
-    src: "/images/eventos/casamentos.webp",
-    alt: "Casal de noivos apaixonados abraçados sob pórtico de flores naturais",
+    src: "/images/eventos/casamento-salvador-recepcao.webp",
+    alt: "Casal de noivos apaixonados abraçados sob pórtico de flores naturais em Salvador",
     categoria: "casamentos",
     proporcao: "3:4",
     foco: "center center",
@@ -80,7 +80,7 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   },
   "evento-casamentos-cerimonia": {
     id: "evento-casamentos-cerimonia",
-    src: "/images/eventos/casamentos-cerimonia.webp",
+    src: "/images/eventos/casamento-salvador-cerimonia.webp",
     alt: "Cerimônia solene de casamento na igreja com noiva, daminha de honra e pajem",
     categoria: "casamentos",
     proporcao: "16:9",
@@ -99,7 +99,7 @@ export const imageManifest: Record<string, ImageManifestItem> = {
 
   "evento-15-anos": {
     id: "evento-15-anos",
-    src: "/images/eventos/15-anos-debutante.webp",
+    src: "/images/eventos/festa-15-anos-salvador-debutante.webp",
     alt: "Debutante sorridente com tiara de cristais e vestido rosé brilhante em festa de 15 anos",
     categoria: "15-anos",
     proporcao: "3:4",
@@ -120,8 +120,8 @@ export const imageManifest: Record<string, ImageManifestItem> = {
 
   "evento-formaturas": {
     id: "evento-formaturas",
-    src: "/images/eventos/formaturas.webp",
-    alt: "Salão de baile de formatura com escadaria monumental e mesas decoradas",
+    src: "/images/eventos/formatura-salvador-baile.webp",
+    alt: "Salão de baile de formatura com escadaria monumental e mesas decoradas em Salvador",
     categoria: "formaturas",
     proporcao: "3:4",
     foco: "center center",
@@ -139,8 +139,8 @@ export const imageManifest: Record<string, ImageManifestItem> = {
 
   "evento-corporativos": {
     id: "evento-corporativos",
-    src: "/images/eventos/corporativos.webp",
-    alt: "Produção de gala com iluminação cênica e celebração executiva de alto padrão",
+    src: "/images/eventos/evento-corporativo-salvador.webp",
+    alt: "Produção de gala com iluminação cênica e celebração executiva em Salvador",
     categoria: "corporativos",
     proporcao: "3:4",
     foco: "center center",
@@ -158,8 +158,8 @@ export const imageManifest: Record<string, ImageManifestItem> = {
 
   "evento-aniversarios": {
     id: "evento-aniversarios",
-    src: "/images/eventos/aniversarios.webp",
-    alt: "Mesa cenográfica de aniversário infantil com tema O Pequeno Príncipe em tons de azul e dourado",
+    src: "/images/eventos/aniversario-salvador-decoracao.webp",
+    alt: "Mesa cenográfica de aniversário com tema infantil em tons de azul e dourado",
     categoria: "aniversarios",
     proporcao: "3:4",
     foco: "center center",
@@ -177,8 +177,8 @@ export const imageManifest: Record<string, ImageManifestItem> = {
 
   "evento-confraternizacoes": {
     id: "evento-confraternizacoes",
-    src: "/images/eventos/confraternizacoes.webp",
-    alt: "Gestante radiante em elegante vestido verde esmeralda no chá de bebê",
+    src: "/images/eventos/confraternizacao-salvador-lounge.webp",
+    alt: "Gestante radiante em elegante vestido verde esmeralda no chá de bebê em Salvador",
     categoria: "confraternizacoes",
     proporcao: "3:4",
     foco: "center center",
