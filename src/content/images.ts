@@ -25,22 +25,22 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   // ==========================================
   "hero-main": {
     id: "hero-main",
-    src: "/images/hero/hero-main.webp", // TEMPORÁRIA
-    alt: "Salão de festas luxuoso com arranjos florais suspensos e iluminação dourada intimista",
+    src: "/images/hero/hero-main.webp",
+    alt: "Mesa majestosa de bolo e doces finos com três lustres de cristal e cortinamento verde esmeralda",
     categoria: "hero",
     proporcao: "16:9",
     foco: "center center",
-    isTemporaria: true,
-    nota: "Trocar pela foto oficial de abertura de evento produzida por Leandro Santana",
+    isTemporaria: false,
+    nota: "Produção cenográfica oficial de evento por Leandro Santana",
   },
   "hero-secondary": {
     id: "hero-secondary",
-    src: "/images/hero/hero-secondary.webp", // TEMPORÁRIA
-    alt: "Brinde com taças de champagne em celebração refinada",
+    src: "/images/hero/hero-secondary.webp",
+    alt: "Leandro Santana e equipe de cerimonial celebrando com braços abertos diante de letras iluminadas",
     categoria: "hero",
     proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   // ==========================================
@@ -48,22 +48,22 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   // ==========================================
   "leandro-santana": {
     id: "leandro-santana",
-    src: "/images/equipe/leandro-santana.webp", // TEMPORÁRIA
-    alt: "Leandro Santana, fundador e diretor de cerimonial",
+    src: "/images/equipe/leandro-santana.webp",
+    alt: "Leandro Santana, cerimonialista e produtor de eventos de luxo em Salvador",
     categoria: "equipe",
     proporcao: "3:4",
     foco: "top center",
-    isTemporaria: true,
-    nota: "Substituir pelo retrato profissional em estúdio de Leandro Santana",
+    isTemporaria: false,
+    nota: "Retrato autêntico de Leandro Santana em traje de gala",
   },
   "bastidores-evento": {
     id: "bastidores-evento",
-    src: "/images/equipe/bastidores-evento.webp", // TEMPORÁRIA
-    alt: "Equipe de produção e cerimonial ajustando detalhes da mesa de recepção",
+    src: "/images/equipe/bastidores-evento.webp",
+    alt: "Equipe de produção e cerimonial Leandro Santana reunida no salão de eventos",
     categoria: "equipe",
     proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   // ==========================================
@@ -71,35 +71,35 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   // ==========================================
   "evento-casamentos": {
     id: "evento-casamentos",
-    src: "/images/eventos/casamentos.webp", // TEMPORÁRIA
-    alt: "Cenário cerimonial de casamento com gazebo floral e cadeiras clássicas",
+    src: "/images/eventos/casamentos.webp",
+    alt: "Casal de noivos apaixonados abraçados sob pórtico de flores naturais",
     categoria: "casamentos",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "evento-casamentos-cerimonia": {
     id: "evento-casamentos-cerimonia",
-    src: "/images/eventos/casamentos-cerimonia.webp", // TEMPORÁRIA
-    alt: "Cerimônia de casamento emocionante com passadeira espelhada e velas",
+    src: "/images/eventos/casamentos-cerimonia.webp",
+    alt: "Cerimônia solene de casamento na igreja com noiva, daminha de honra e pajem",
     categoria: "casamentos",
     proporcao: "16:9",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "evento-casamentos-festa": {
     id: "evento-casamentos-festa",
-    src: "/images/eventos/casamentos-festa.webp", // TEMPORÁRIA
-    alt: "Recepção de casamento animada com iluminação cênica e pista",
+    src: "/images/eventos/casamentos-festa.webp",
+    alt: "Noivos e padrinhos em festa vibrando e comemorando com taças de champanhe",
     categoria: "casamentos",
     proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   "evento-15-anos": {
     id: "evento-15-anos",
-    src: "/images/eventos/15-anos-debutante.webp", // FOTO REAL DO CLIENTE (cada de festa)
+    src: "/images/eventos/15-anos-debutante.webp",
     alt: "Debutante sorridente com tiara de cristais e vestido rosé brilhante em festa de 15 anos",
     categoria: "15-anos",
     proporcao: "3:4",
@@ -109,7 +109,7 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   },
   "evento-15-anos-pista": {
     id: "evento-15-anos-pista",
-    src: "/images/eventos/15-anos-valsa.webp", // FOTO REAL DO CLIENTE (cada de festa)
+    src: "/images/eventos/15-anos-valsa.webp",
     alt: "Valsa da debutante em pista com piso de LED e iluminação cênica magenta",
     categoria: "15-anos",
     proporcao: "3:4",
@@ -120,78 +120,78 @@ export const imageManifest: Record<string, ImageManifestItem> = {
 
   "evento-formaturas": {
     id: "evento-formaturas",
-    src: "/images/eventos/formaturas.webp", // TEMPORÁRIA
-    alt: "Baile de formatura com salão nobre e mesa de formandos decorada",
+    src: "/images/eventos/formaturas.webp",
+    alt: "Salão de baile de formatura com escadaria monumental e mesas decoradas",
     categoria: "formaturas",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "evento-formaturas-brinde": {
     id: "evento-formaturas-brinde",
-    src: "/images/eventos/formaturas-brinde.webp", // TEMPORÁRIA
-    alt: "Comemoração de formandos brindando a conquista acadêmica",
+    src: "/images/eventos/formaturas-brinde.webp",
+    alt: "Banquete de gala com taças de cristal, arranjos de rosas vermelhas e iluminação cênica",
     categoria: "formaturas",
     proporcao: "16:9",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   "evento-corporativos": {
     id: "evento-corporativos",
-    src: "/images/eventos/corporativos.webp", // TEMPORÁRIA
-    alt: "Jantar corporativo de alto nível com iluminação arquitetural e mesas executivas",
+    src: "/images/eventos/corporativos.webp",
+    alt: "Produção de gala com iluminação cênica e celebração executiva de alto padrão",
     categoria: "corporativos",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "evento-corporativos-coquetel": {
     id: "evento-corporativos-coquetel",
-    src: "/images/eventos/corporativos-coquetel.webp", // TEMPORÁRIA
-    alt: "Coquetel executivo e networking com serviço volante de buffet",
+    src: "/images/eventos/corporativos-coquetel.webp",
+    alt: "Recepção refinada de convidados com moldura barroca dourada e ambientação exclusiva",
     categoria: "corporativos",
     proporcao: "16:9",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   "evento-aniversarios": {
     id: "evento-aniversarios",
-    src: "/images/eventos/aniversarios.webp", // TEMPORÁRIA
-    alt: "Festa de aniversário sofisticada com mesa posta e iluminação a velas",
+    src: "/images/eventos/aniversarios.webp",
+    alt: "Mesa cenográfica de aniversário infantil com tema O Pequeno Príncipe em tons de azul e dourado",
     categoria: "aniversarios",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "evento-aniversarios-bolo": {
     id: "evento-aniversarios-bolo",
-    src: "/images/eventos/aniversarios-bolo.webp", // TEMPORÁRIA
-    alt: "Mesa de doces finos e bolo decorado para aniversário comemorativo",
+    src: "/images/eventos/aniversarios-bolo.webp",
+    alt: "Topo de bolo artesanal com coroa dourada do príncipe para comemoração de aniversário",
     categoria: "aniversarios",
     proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   "evento-confraternizacoes": {
     id: "evento-confraternizacoes",
-    src: "/images/eventos/confraternizacoes.webp", // TEMPORÁRIA
-    alt: "Confraternização festiva ao entardecer com lounge e cordões de luz",
+    src: "/images/eventos/confraternizacoes.webp",
+    alt: "Gestante radiante em elegante vestido verde esmeralda no chá de bebê",
     categoria: "confraternizacoes",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "evento-confraternizacoes-lounge": {
     id: "evento-confraternizacoes-lounge",
-    src: "/images/eventos/confraternizacoes-lounge.webp", // TEMPORÁRIA
-    alt: "Lounge descontraído e sofisticado para confraternizações de fim de ano",
+    src: "/images/eventos/confraternizacoes-lounge.webp",
+    alt: "Abraço caloroso de convidadas em lounge decorado com arranjos de balões orgânicos",
     categoria: "confraternizacoes",
     proporcao: "16:9",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   // ==========================================
@@ -199,66 +199,66 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   // ==========================================
   "servico-cerimonial": {
     id: "servico-cerimonial",
-    src: "/images/servicos/cerimonial.webp", // TEMPORÁRIA
-    alt: "Assessoria e cerimonial alinhando cronograma e montagem antes do evento",
+    src: "/images/servicos/cerimonial.webp",
+    alt: "Leandro Santana e equipe de cerimonial conduzindo dinâmicas e animação do evento",
     categoria: "servicos",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "servico-buffet": {
     id: "servico-buffet",
-    src: "/images/servicos/buffet.webp", // TEMPORÁRIA
-    alt: "Buffet gastronômico completo com entradas empratadas e gastronomia requintada",
+    src: "/images/servicos/buffet.webp",
+    alt: "Serviço de buffet requintado com louça fina de porcelana floral e talheres nobres",
     categoria: "servicos",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "servico-decoracao": {
     id: "servico-decoracao",
-    src: "/images/servicos/decoracao.webp", // TEMPORÁRIA
-    alt: "Projeto de decoração floral suntuosa com lustres de cristal e detalhes dourados",
+    src: "/images/servicos/decoracao.webp",
+    alt: "Balão cenográfico de ar quente com iluminação interna e lustre de cristal suspenso",
     categoria: "servicos",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "servico-espaco": {
     id: "servico-espaco",
-    src: "/images/servicos/espaco.webp", // TEMPORÁRIA
-    alt: "Espaço nobre para eventos com arquitetura ampla e estrutura climatizada",
+    src: "/images/servicos/espaco.webp",
+    alt: "Salão nobre de recepção com escadaria clássica imponente e arquitetura monumental",
     categoria: "servicos",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "servico-bar": {
     id: "servico-bar",
-    src: "/images/servicos/bar.webp", // TEMPORÁRIA
-    alt: "Bar de drinks artesanais com bartenders profissionais e coquetelaria exclusiva",
+    src: "/images/servicos/bar.webp",
+    alt: "Bolo cenográfico escultural temático O Fantasma da Ópera e estrutura de bar requintada",
     categoria: "servicos",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "servico-musica": {
     id: "servico-musica",
-    src: "/images/servicos/musica.webp", // TEMPORÁRIA
-    alt: "Estrutura técnica com iluminação robótica, sonorização de alta fidelidade e DJ",
+    src: "/images/servicos/musica.webp",
+    alt: "Estrutura completa com letras gigantes iluminadas, iluminação cênica e pista animada",
     categoria: "servicos",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "servico-foto": {
     id: "servico-foto",
-    src: "/images/servicos/foto.webp", // TEMPORÁRIA
-    alt: "Cobertura fotográfica e cinematográfica registrando momentos marcantes do evento",
+    src: "/images/servicos/foto.webp",
+    alt: "Ensaio fotográfico na praia ao pôr do sol enquadrado pela aliança de casamento",
     categoria: "servicos",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   // ==========================================
@@ -266,35 +266,71 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   // ==========================================
   "galeria-casamento-01": {
     id: "galeria-casamento-01",
-    src: "/images/galeria/casamento-01.webp", // TEMPORÁRIA
-    alt: "Casamento ao ar livre com decoração rústico-chique e arranjos aéreos",
+    src: "/images/galeria/casamento-01.webp",
+    alt: "Casamento emocionante com os noivos de smoking trocando beijo carinhoso",
     categoria: "galeria",
     proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "galeria-casamento-02": {
     id: "galeria-casamento-02",
-    src: "/images/galeria/casamento-02.webp", // TEMPORÁRIA
-    alt: "Detalhe da aliança e bouquet da noiva com flores nobres",
+    src: "/images/galeria/casamento-02.webp",
+    alt: "Making of exclusivo da noiva recebendo cuidados do maquiador profissional",
     categoria: "galeria",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "galeria-casamento-03": {
     id: "galeria-casamento-03",
-    src: "/images/galeria/casamento-03.webp", // TEMPORÁRIA
-    alt: "Recepção nupcial com mesa de bolo iluminada e arranjos altos",
+    src: "/images/galeria/casamento-03.webp",
+    alt: "Registro poético em bokeh das mãos dos noivos com a aliança de casamento",
     categoria: "galeria",
     proporcao: "16:9",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
+  },
+  "galeria-casamento-04": {
+    id: "galeria-casamento-04",
+    src: "/images/galeria/casamento-04.webp",
+    alt: "Entrada triunfal da noiva na igreja acompanhada por daminha de honra e pajem",
+    categoria: "galeria",
+    proporcao: "16:9",
+    foco: "center center",
+    isTemporaria: false,
+  },
+  "galeria-casamento-05": {
+    id: "galeria-casamento-05",
+    src: "/images/galeria/casamento-05.webp",
+    alt: "Noivos e padrinhos em euforia comemorando na recepção de casamento",
+    categoria: "galeria",
+    proporcao: "4:3",
+    foco: "center center",
+    isTemporaria: false,
+  },
+  "galeria-casamento-06": {
+    id: "galeria-casamento-06",
+    src: "/images/galeria/casamento-06.webp",
+    alt: "Noivos abraçados sob belíssimo pórtico de flores naturais ao entardecer",
+    categoria: "galeria",
+    proporcao: "4:3",
+    foco: "center center",
+    isTemporaria: false,
+  },
+  "galeria-casamento-07": {
+    id: "galeria-casamento-07",
+    src: "/images/galeria/casamento-07.webp",
+    alt: "Composição artística de pré-wedding na praia vista através da aliança dourada",
+    categoria: "galeria",
+    proporcao: "4:3",
+    foco: "center center",
+    isTemporaria: false,
   },
 
   "galeria-15-anos-01": {
     id: "galeria-15-anos-01",
-    src: "/images/galeria/15-anos-debutante.webp", // FOTO REAL DO CLIENTE
+    src: "/images/galeria/15-anos-debutante.webp",
     alt: "Debutante com coroa de pedrarias e vestido de baile rosé",
     categoria: "galeria",
     proporcao: "3:4",
@@ -304,8 +340,8 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   },
   "galeria-15-anos-02": {
     id: "galeria-15-anos-02",
-    src: "/images/galeria/15-anos-valsa.webp", // FOTO REAL DO CLIENTE
-    alt: "Momento da valsa da debutante em pista iluminada",
+    src: "/images/galeria/15-anos-valsa.webp",
+    alt: "Momento da valsa da debutante em pista iluminada com piso de LED",
     categoria: "galeria",
     proporcao: "3:4",
     foco: "center center",
@@ -314,7 +350,7 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   },
   "galeria-15-anos-03": {
     id: "galeria-15-anos-03",
-    src: "/images/galeria/15-anos-detalhe.webp", // FOTO REAL DO CLIENTE
+    src: "/images/galeria/15-anos-detalhe.webp",
     alt: "Debutante sentada sobre a saia do vestido com iluminação estelar ao fundo",
     categoria: "galeria",
     proporcao: "3:4",
@@ -322,108 +358,190 @@ export const imageManifest: Record<string, ImageManifestItem> = {
     isTemporaria: false,
     nota: "Foto real do ensaio no salão",
   },
+  "galeria-15-anos-04": {
+    id: "galeria-15-anos-04",
+    src: "/images/galeria/15-anos-04.webp",
+    alt: "Debutante em ensaio temático Alice no País das Maravilhas com relógio gigante e piso xadrez",
+    categoria: "galeria",
+    proporcao: "3:4",
+    foco: "center center",
+    isTemporaria: false,
+    nota: "Ensaio temático produzido com cenografia exclusiva",
+  },
 
   "galeria-formatura-01": {
     id: "galeria-formatura-01",
-    src: "/images/galeria/formatura-01.webp", // TEMPORÁRIA
-    alt: "Entrada triunfal dos formandos na solenidade de formatura",
+    src: "/images/galeria/formatura-01.webp",
+    alt: "Recepção solene do baile de gala com moldura barroca dourada e iluminação refinada",
     categoria: "galeria",
     proporcao: "16:9",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "galeria-formatura-02": {
     id: "galeria-formatura-02",
-    src: "/images/galeria/formatura-02.webp", // TEMPORÁRIA
-    alt: "Brinde com taças personalizadas no baile de gala dos formandos",
+    src: "/images/galeria/formatura-02.webp",
+    alt: "Salão de gala imperial com escadaria monumental para o baile dos concluintes",
     categoria: "galeria",
     proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   "galeria-decoracao-01": {
     id: "galeria-decoracao-01",
-    src: "/images/galeria/decoracao-01.webp", // TEMPORÁRIA
-    alt: "Mesa de recepção decorada com castiçais de cristal e flores em tons quentes",
+    src: "/images/galeria/decoracao-01.webp",
+    alt: "Cenografia temática Dino Baby com cubos decorativos e elementos lúdicos",
     categoria: "galeria",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "galeria-decoracao-02": {
     id: "galeria-decoracao-02",
-    src: "/images/galeria/decoracao-02.webp", // TEMPORÁRIA
-    alt: "Ambientação com velas suspensas e folhagens tropicais elegantes",
+    src: "/images/galeria/decoracao-02.webp",
+    alt: "Painel circular temático com acabamento refinado e iluminação suave",
     categoria: "galeria",
     proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "galeria-decoracao-03": {
     id: "galeria-decoracao-03",
-    src: "/images/galeria/decoracao-03.webp", // TEMPORÁRIA
-    alt: "Mesa principal ornamentada com peças clássicas e sousplats dourados",
+    src: "/images/galeria/decoracao-03.webp",
+    alt: "Mesa principal suntuosa de bolo e doces com 3 lustres de cristal e cortinamento esmeralda",
     categoria: "galeria",
     proporcao: "16:9",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
+  },
+  "galeria-decoracao-04": {
+    id: "galeria-decoracao-04",
+    src: "/images/galeria/decoracao-04.webp",
+    alt: "Balão de ar quente cenográfico com lustre de cristal e iluminação acolhedora",
+    categoria: "galeria",
+    proporcao: "3:4",
+    foco: "center center",
+    isTemporaria: false,
+  },
+  "galeria-decoracao-05": {
+    id: "galeria-decoracao-05",
+    src: "/images/galeria/decoracao-05.webp",
+    alt: "Topo de bolo com coroa artesanal dourada e detalhes personalizados",
+    categoria: "galeria",
+    proporcao: "4:3",
+    foco: "center center",
+    isTemporaria: false,
+  },
+  "galeria-decoracao-06": {
+    id: "galeria-decoracao-06",
+    src: "/images/galeria/decoracao-06.webp",
+    alt: "Mesa de doces finos O Pequeno Príncipe em tons de azul royal e dourado",
+    categoria: "galeria",
+    proporcao: "4:3",
+    foco: "center center",
+    isTemporaria: false,
   },
 
   "galeria-buffet-01": {
     id: "galeria-buffet-01",
-    src: "/images/galeria/buffet-01.webp", // TEMPORÁRIA
-    alt: "Canapés finos montados com precisão artística para coquetel de abertura",
+    src: "/images/galeria/buffet-01.webp",
+    alt: "Mesa de banquete finamente posta com taças de cristal e arranjos florais de rosas vermelhas",
     categoria: "galeria",
     proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "galeria-buffet-02": {
     id: "galeria-buffet-02",
-    src: "/images/galeria/buffet-02.webp", // TEMPORÁRIA
-    alt: "Mesa de antepastos nobres, queijos finos e pães artesanais",
+    src: "/images/galeria/buffet-02.webp",
+    alt: "Bolo cenográfico de luxo temático O Fantasma da Ópera com detalhes esculpidos",
     categoria: "galeria",
     proporcao: "16:9",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "galeria-buffet-03": {
     id: "galeria-buffet-03",
-    src: "/images/galeria/buffet-03.webp", // TEMPORÁRIA
-    alt: "Jantar empratado com finalização gourmet e serviço impecável",
+    src: "/images/galeria/buffet-03.webp",
+    alt: "Serviço de chá e degustação com conjunto de louças florais de porcelana",
     categoria: "galeria",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
 
   "galeria-momentos-01": {
     id: "galeria-momentos-01",
-    src: "/images/galeria/momentos-01.webp", // TEMPORÁRIA
-    alt: "Abraço emocionante entre anfitriões em meio à pista de dança",
+    src: "/images/galeria/momentos-01.webp",
+    alt: "Beijo carinhoso do casal durante a celebração do chá revelação",
     categoria: "galeria",
     proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "galeria-momentos-02": {
     id: "galeria-momentos-02",
-    src: "/images/galeria/momentos-02.webp", // TEMPORÁRIA
-    alt: "Cerimonialista coordenando a contagem regressiva para a valsa",
+    src: "/images/galeria/momentos-02.webp",
+    alt: "Debutante no ensaio temático Alice diante de relógio monumental",
     categoria: "galeria",
     proporcao: "3:4",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
   },
   "galeria-momentos-03": {
     id: "galeria-momentos-03",
-    src: "/images/galeria/momentos-03.webp", // TEMPORÁRIA
-    alt: "Chuva de fogos indoor e efeitos luminosos celebrando o ponto alto da noite",
+    src: "/images/galeria/momentos-03.webp",
+    alt: "Bebê Bento sorridente com coroa de príncipe celebrando 1 aninho",
     categoria: "galeria",
-    proporcao: "16:9",
+    proporcao: "4:3",
     foco: "center center",
-    isTemporaria: true,
+    isTemporaria: false,
+  },
+  "galeria-momentos-04": {
+    id: "galeria-momentos-04",
+    src: "/images/galeria/momentos-04.webp",
+    alt: "Crianças se divertindo e comemorando em clima de festa",
+    categoria: "galeria",
+    proporcao: "4:3",
+    foco: "center center",
+    isTemporaria: false,
+  },
+  "galeria-momentos-05": {
+    id: "galeria-momentos-05",
+    src: "/images/galeria/momentos-05.webp",
+    alt: "Registro espontâneo do bebê brincando com cubos decorativos",
+    categoria: "galeria",
+    proporcao: "4:3",
+    foco: "center center",
+    isTemporaria: false,
+  },
+  "galeria-momentos-06": {
+    id: "galeria-momentos-06",
+    src: "/images/galeria/momentos-06.webp",
+    alt: "Momento carinhoso e descontraído da criança no espaço de celebração",
+    categoria: "galeria",
+    proporcao: "4:3",
+    foco: "center center",
+    isTemporaria: false,
+  },
+  "galeria-momentos-07": {
+    id: "galeria-momentos-07",
+    src: "/images/galeria/momentos-07.webp",
+    alt: "Abraço afetuoso e genuíno entre convidadas da festa",
+    categoria: "galeria",
+    proporcao: "4:3",
+    foco: "center center",
+    isTemporaria: false,
+  },
+  "galeria-momentos-08": {
+    id: "galeria-momentos-08",
+    src: "/images/galeria/momentos-08.webp",
+    alt: "Gestante elegante em vestido verde esmeralda celebrando a espera do bebê",
+    categoria: "galeria",
+    proporcao: "3:4",
+    foco: "center center",
+    isTemporaria: false,
   },
 };
 
@@ -441,7 +559,7 @@ export function getImage(id: string): ImageManifestItem {
       categoria: "hero",
       proporcao: "16:9",
       foco: "center center",
-      isTemporaria: true,
+      isTemporaria: false,
     };
   }
   return item;
