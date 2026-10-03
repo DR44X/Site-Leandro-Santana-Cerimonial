@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { MobileCtaBar } from "@/components/MobileCtaBar";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { siteConfig } from "@/content/site";
 
@@ -32,11 +33,14 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Leandro Santana Cerimonial | Salvador / BA",
-    template: "%s | Leandro Santana Cerimonial",
+    default: "Cerimonial e Eventos em Salvador | Leandro Santana",
+    template: "%s",
   },
   description:
-    "Site institucional de luxo especializado em assessoria, cerimonial, buffet gastronômico e decoração cenográfica em Salvador e Litoral Norte da Bahia.",
+    "Cerimonial, buffet e decoração de eventos em Salvador/BA. Casamentos, 15 anos e formaturas com assessoria completa e presença em todas as etapas.",
+  alternates: {
+    canonical: siteUrl,
+  },
   keywords: [
     "cerimonial Salvador",
     "eventos Salvador",
@@ -64,25 +68,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: siteUrl,
-    title: "Leandro Santana Cerimonial | Eventos de Alto Padrão em Salvador",
+    title: "Cerimonial e Eventos em Salvador | Leandro Santana",
     description:
-      "Cerimonial, buffet, decoração e produção de eventos em Salvador/BA. Momentos únicos orquestrados com sofisticação e excelência.",
+      "Cerimonial, buffet e decoração de eventos em Salvador/BA. Planejamento completo para casamentos, 15 anos, formaturas e celebrações.",
     siteName: "Leandro Santana Cerimonial",
     images: [
       {
-        url: "/og-image.jpg",
+        url: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Leandro Santana Cerimonial — Eventos de Alto Padrão em Salvador",
+        alt: "Leandro Santana Cerimonial — Eventos em Salvador",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leandro Santana Cerimonial | Salvador / BA",
+    title: "Cerimonial e Eventos em Salvador | Leandro Santana",
     description:
-      "Cerimonial, buffet, decoração e produção de eventos em Salvador/BA.",
-    images: ["/og-image.jpg"],
+      "Cerimonial, buffet e decoração de eventos em Salvador/BA.",
+    images: [`${siteUrl}/og-image.jpg`],
   },
   robots: {
     index: true,
@@ -102,19 +106,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Schema.org LocalBusiness JSON-LD
+  // Schema.org LocalBusiness & EventPlanner JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "EventPlanner"],
     name: siteConfig.name,
     description: siteConfig.description,
-    telephone: "+5571983216686",
+    telephone: siteConfig.phone.display,
     email: siteConfig.email,
     url: siteUrl,
     taxID: siteConfig.cnpj,
     address: {
       "@type": "PostalAddress",
-      streetAddress: `${siteConfig.address.street}, nº ${siteConfig.address.number}, ${siteConfig.address.complement}`,
+      streetAddress: `${siteConfig.address.street}, nº ${siteConfig.address.number}`,
       addressLocality: siteConfig.address.city,
       addressRegion: siteConfig.address.state,
       postalCode: siteConfig.address.zipCode,
@@ -127,10 +131,16 @@ export default function RootLayout({
     },
     sameAs: [siteConfig.social.instagram, siteConfig.phone.whatsappUrl],
     priceRange: "$$$",
-    areaServed: {
-      "@type": "City",
-      name: "Salvador",
-    },
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Salvador",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Bahia",
+      },
+    ],
   };
 
   return (
@@ -160,12 +170,15 @@ export default function RootLayout({
           <Header />
 
           {/* Conteúdo da página */}
-          <main id="conteudo-principal" className="flex-1 w-full">
+          <main id="conteudo-principal" className="flex-1 w-full pb-14 sm:pb-0">
             {children}
           </main>
 
-          {/* Botão flutuante WhatsApp */}
+          {/* Botão flutuante WhatsApp com mensagem dinâmica */}
           <WhatsAppButton />
+
+          {/* Barra fixa de CTA no celular */}
+          <MobileCtaBar />
 
           {/* Rodapé institucional com 4 colunas */}
           <Footer />

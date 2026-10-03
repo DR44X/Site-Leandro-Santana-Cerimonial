@@ -6,16 +6,27 @@ import { EventCard } from "@/components/EventCard";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Gallery } from "@/components/Gallery";
 import { Testimonial } from "@/components/Testimonial";
+import { MiniFAQ } from "@/components/MiniFAQ";
 import { CTA } from "@/components/CTA";
 import { Button } from "@/components/Button";
 import { Photo } from "@/components/Photo";
 import { eventCategories } from "@/content/eventos";
 import { servicesData } from "@/content/servicos";
+import { siteConfig } from "@/content/site";
 
 export const metadata = {
-  title: "Leandro Santana Cerimonial | Salvador / BA — Eventos de Alto Padrão",
+  title: "Cerimonial e Eventos em Salvador | Leandro Santana",
   description:
-    "Cerimonial, buffet, decoração e produção completa para casamentos, 15 anos, formaturas e eventos corporativos em Salvador e região.",
+    "Cerimonial, buffet e decoração de eventos em Salvador. Casamentos, 15 anos e celebrações com planejamento completo e atendimento dedicado.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Cerimonial e Eventos em Salvador | Leandro Santana",
+    description:
+      "Cerimonial, buffet e decoração de eventos em Salvador. Casamentos, 15 anos e celebrações com planejamento completo e atendimento dedicado.",
+    url: "/",
+  },
 };
 
 export default function HomePage() {
@@ -23,8 +34,8 @@ export default function HomePage() {
     <div className="w-full overflow-hidden">
       {/* 1. HERO EM TELA CHEIA */}
       <Hero
-        title="Transformamos eventos em experiências inesquecíveis"
-        subtitle="Cerimonial, buffet, decoração e produção completa para momentos únicos."
+        title="Planejamos e produzimos o seu evento com atenção e método"
+        subtitle="Cerimonial, buffet, decoração e assessoria completa em Salvador e Litoral Norte."
         primaryCtaLabel="Solicite seu orçamento"
         primaryCtaHref="/orcamentos"
         secondaryCtaLabel="Conheça nossos eventos"
@@ -70,34 +81,30 @@ export default function HomePage() {
             <div className="lg:col-span-6 space-y-6 lg:pl-6">
               <SectionHeading
                 number="01"
-                eyebrow="Nossa Assinatura"
-                title="A arte de celebrar com"
-                highlight="alma e distinção"
-                className="mb-6"
+                eyebrow="Origem e Presença"
+                title="A segurança de uma condução"
+                highlight="atenta e próxima"
+                className="mb-4"
               />
 
-              <div className="space-y-5 text-ivory/75 font-sans font-light leading-relaxed text-base sm:text-lg">
+              <div className="space-y-4 text-ivory/80 font-sans font-light leading-relaxed text-base sm:text-lg">
                 <p>
-                  A <strong className="text-ivory font-normal">Leandro Santana Cerimonial</strong> nasce da paixão genuína por orquestrar celebrações onde a técnica impecável e o afeto se encontram.
+                  A <strong className="text-ivory font-normal">Leandro Santana Cerimonial</strong> nasce da prática contínua de coordenar celebrações onde o cumprimento rigoroso dos horários caminha lado a lado com o carinho no acolhimento aos seus convidados.
                 </p>
                 <p>
-                  Com a sólida trajetória construída na <strong className="text-gold font-normal">DeCasa</strong> como alicerce, inauguramos uma fase marcada por um atendimento ainda mais exclusivo e autoral, cuidando pessoalmente da assessoria, gastronomia, cenografia e produção de cada detalhe.
-                </p>
-                <p className="text-sm text-gold/80 italic font-serif pt-1">
-                  &ldquo;Não produzimos apenas eventos. Criamos memórias sensoriais que permanecem para sempre na memória dos seus convidados.&rdquo;
+                  Com sólida experiência construída à frente de grandes celebrações na Bahia, Leandro Santana consolidou um padrão reconhecido de entrega: acompanhamento direto com os clientes, alinhamento técnico com fornecedores e tranquilidade para sua família durante todo o evento.
                 </p>
               </div>
 
-              <div className="pt-6 flex items-center gap-6">
+              <div className="pt-4 flex flex-wrap items-center gap-4">
                 <Button href="/quem-somos" variant="outline" size="md">
-                  Saiba mais sobre nós
+                  Conheça nossa trajetória
                 </Button>
-
                 <Link
-                  href="/orcamentos"
-                  className="text-xs uppercase tracking-widest text-gold hover:text-ivory inline-flex items-center gap-2 group transition-colors py-2"
+                  href="/contato"
+                  className="text-xs uppercase tracking-widest text-gold hover:text-ivory inline-flex items-center gap-2 group transition-colors font-sans py-2"
                 >
-                  <span>Pedir proposta</span>
+                  <span>Falar diretamente conosco</span>
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
               </div>
@@ -106,47 +113,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. O QUE FAZEMOS (6 TIPOS DE EVENTO EM GRID ASSIMÉTRICO) */}
-      <section className="py-24 md:py-32 bg-espresso-dark relative border-t border-gold/20 bg-grain">
+      {/* 3. EVENTOS (CARDS EDITORIAIS EM GRID 3 COLUNAS) */}
+      <section className="py-24 md:py-32 bg-espresso relative border-t border-gold/20 bg-grain">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <SectionHeading
               number="02"
-              eyebrow="Celebrações Autorais"
-              title="O que fazemos para o seu"
-              highlight="grande momento"
-              subtitle="Projetos sob medida para cada ocasião, unindo planejamento detalhado, gastronomia de excelência e ambientação envolvente."
+              eyebrow="Tipos de Celebração"
+              title="Momentos desenhados para"
+              highlight="a sua história"
+              subtitle="Projetos sob medida para cada ocasião, unindo planejamento detalhado, cardápios bem executados e ambientação envolvente."
               className="mb-0"
             />
 
-            <Button href="/eventos" variant="secondary" size="md" className="self-start md:self-end">
+            <Button href="/eventos" variant="gold" size="md" className="self-start md:self-end">
               Ver todos os eventos
             </Button>
           </div>
 
-          {/* Grid Assimétrico: 2 cards grandes e 4 menores */}
+          {/* Grid de Cards de Eventos */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {eventCategories.map((evento, idx) => {
-              // 2 primeiros cards têm destaque em escala
-              const isLarge = idx === 0 || idx === 1;
-
-              return (
-                <EventCard
-                  key={evento.slug}
-                  slug={evento.slug}
-                  title={evento.title}
-                  description={evento.shortDescription}
-                  imageId={evento.heroImageId}
-                  number={`0${idx + 1}`}
-                  variant={isLarge ? "large" : "standard"}
-                />
-              );
-            })}
+            {eventCategories.map((evento, idx) => (
+              <EventCard
+                key={evento.slug}
+                slug={evento.slug}
+                title={evento.title}
+                description={evento.shortDescription}
+                imageId={evento.heroImageId}
+                number={`0${idx + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4. SERVIÇOS EM DESTAQUE (CARDS ALTOS COM PROPORÇÃO 3:4 E UM MAIS LARGO) */}
+      {/* 4. SERVIÇOS (6 CARDS PRINCIPAIS) */}
       <section className="py-24 md:py-32 bg-ink relative border-t border-gold/20 bg-grain">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -155,7 +156,7 @@ export default function HomePage() {
               eyebrow="Soluções Integradas"
               title="Estrutura completa em"
               highlight="cada etapa"
-              subtitle="Cuidamos de todas as frentes para que você viva sua celebração com total tranquilidade e requinte."
+              subtitle="Cuidamos de todas as etapas para que você viva sua celebração com total tranquilidade."
               className="mb-0"
             />
 
@@ -181,7 +182,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. GALERIA RESUMIDA (MOSAICO EDITORIAL + VER GALERIA COMPLETA) */}
+      {/* 5. GALERIA RESUMIDA (MOSAICO EDITORIAL + INSTAGRAM BUTTON) */}
       <section className="py-24 md:py-32 bg-espresso-dark relative border-t border-gold/20 bg-grain">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -190,13 +191,25 @@ export default function HomePage() {
               eyebrow="Nossos Registros"
               title="Momentos que falam por"
               highlight="si mesmos"
-              subtitle="Fotografia autêntica que eterniza emoções reais em festas de 15 anos, casamentos e grandes solenidades."
+              subtitle="Fotografias reais que documentam emoções sinceras em festas de 15 anos, casamentos e solenidades na Bahia."
               className="mb-0"
             />
 
-            <Button href="/galeria" variant="gold" size="md" className="self-start md:self-end">
-              Ver galeria completa
-            </Button>
+            <div className="flex flex-wrap items-center gap-3 self-start md:self-end">
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 border border-gold/40 hover:border-gold bg-espresso/60 text-ivory hover:text-gold text-xs uppercase tracking-widest transition-colors font-sans"
+              >
+                <span>Instagram {siteConfig.social.instagramUser}</span>
+                <span>↗</span>
+              </a>
+
+              <Button href="/galeria" variant="gold" size="md">
+                Ver galeria completa
+              </Button>
+            </div>
           </div>
 
           {/* Exibe 6 itens na Home com proporções variadas */}
@@ -204,13 +217,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. DEPOIMENTOS (FUNDO ESPRESSO, CITAÇÃO GRANDE EM SERIFADA, SEM FAKES) */}
+      {/* 6. DEPOIMENTOS */}
       <Testimonial />
 
-      {/* 7. CTA FINAL IMPACTANTE */}
+      {/* 7. MINI-FAQ ANTES DO CTA FINAL */}
+      <MiniFAQ />
+
+      {/* 8. CTA FINAL */}
       <CTA
-        title="Vamos criar juntos um momento inesquecível?"
-        subtitle="Converse com nossa equipe e receba um planejamento personalizado para o seu evento."
+        title="Vamos planejar o seu evento em Salvador?"
+        subtitle="Converse com nossa equipe e receba um planejamento personalizado para a sua data."
         buttonLabel="Solicitar orçamento"
         buttonHref="/orcamentos"
       />

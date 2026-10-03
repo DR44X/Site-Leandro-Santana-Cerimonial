@@ -3,12 +3,22 @@ import { PageBanner } from "@/components/PageBanner";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ContactForm } from "@/components/ContactForm";
 import { EventPlanningChecklist } from "@/components/EventPlanningChecklist";
+import { MiniFAQ } from "@/components/MiniFAQ";
 import { siteConfig } from "@/content/site";
 
 export const metadata = {
-  title: "Solicite seu Orçamento",
+  title: "Orçamento de Evento em Salvador | Leandro Santana",
   description:
-    "Solicite um orçamento personalizado para o seu evento em Salvador com Leandro Santana Cerimonial. Cerimonial, buffet, decoração e produção completa.",
+    "Peça um orçamento para o seu evento em Salvador. Retornamos pelo WhatsApp com proposta personalizada para casamento, 15 anos ou festa.",
+  alternates: {
+    canonical: "/orcamentos/",
+  },
+  openGraph: {
+    title: "Orçamento de Evento em Salvador | Leandro Santana",
+    description:
+      "Peça um orçamento para o seu evento em Salvador. Retornamos pelo WhatsApp com proposta personalizada para casamento, 15 anos ou festa.",
+    url: "/orcamentos/",
+  },
 };
 
 export default function OrcamentosPage() {
@@ -16,10 +26,11 @@ export default function OrcamentosPage() {
     <div className="w-full">
       {/* Banner da Página de Orçamento */}
       <PageBanner
-        eyebrow="Planejamento Personalizado"
+        eyebrow="Planejamento em Salvador"
         title="Solicite seu Orçamento"
         subtitle="Preencha os detalhes da sua celebração e receba um atendimento ágil e dedicado da nossa equipe especializada."
         imageSrc="/images/hero/hero-secondary.webp"
+        imageAlt="Brinde de celebração com taças de champanhe"
       />
 
       {/* Checklist Interativo de Planejamento de Eventos */}
@@ -59,7 +70,7 @@ export default function OrcamentosPage() {
                   <div>
                     <h4 className="font-serif text-lg text-ivory">Pacote Sob Medida</h4>
                     <p className="text-xs sm:text-sm text-ivory/70 mt-1">
-                      Estruturamos os serviços integrados (cerimonial, buffet, cenografia, som e foto) para otimizar seu investimento.
+                      Apresentamos opções modulares unindo cerimonial, buffet, decoração e serviços técnicos.
                     </p>
                   </div>
                 </div>
@@ -69,7 +80,7 @@ export default function OrcamentosPage() {
                     3
                   </span>
                   <div>
-                    <h4 className="font-serif text-lg text-ivory">Retorno no WhatsApp</h4>
+                    <h4 className="font-serif text-lg text-ivory">Alinhamento Direto</h4>
                     <p className="text-xs sm:text-sm text-ivory/70 mt-1">
                       Nossa equipe comercial entra em contato diretamente com você pelo WhatsApp para alinhar detalhes e agendar degustação.
                     </p>
@@ -112,6 +123,9 @@ export default function OrcamentosPage() {
           </div>
         </div>
       </section>
+
+      {/* Mini-FAQ */}
+      <MiniFAQ />
     </div>
   );
 }

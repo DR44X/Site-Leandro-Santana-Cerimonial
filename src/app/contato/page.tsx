@@ -1,133 +1,206 @@
-import React, { Suspense } from "react";
+import React from "react";
+import Link from "next/link";
 import { PageBanner } from "@/components/PageBanner";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ContactForm } from "@/components/ContactForm";
 import { siteConfig } from "@/content/site";
 
 export const metadata = {
-  title: "Contato e Localização",
+  title: "Contato e Localização em Salvador | Leandro Santana",
   description:
-    "Entre em contato com Leandro Santana Cerimonial em Salvador/BA. Telefone, WhatsApp, e-mail, endereço e mapa de localização.",
+    "Fale com Leandro Santana Cerimonial em Salvador. WhatsApp comercial, e-mail, telefone e endereço no bairro Luiz Anselmo.",
+  alternates: {
+    canonical: "/contato/",
+  },
+  openGraph: {
+    title: "Contato e Localização em Salvador | Leandro Santana",
+    description:
+      "Fale com Leandro Santana Cerimonial em Salvador. WhatsApp comercial, e-mail, telefone e endereço no bairro Luiz Anselmo.",
+    url: "/contato/",
+  },
 };
 
 export default function ContatoPage() {
-  // Endereço codificado para embed gratuito do Google Maps sem API key
-  const encodedAddress = encodeURIComponent(
+  const addressQuery = encodeURIComponent(
     "Rua Hélio de Oliveira, 215, Luiz Anselmo, Salvador - BA, 40261-060"
   );
-  const mapEmbedUrl = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${addressQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  const googleMapsDirectionsUrl = `https://www.google.com/maps/search/?api=1&query=${addressQuery}`;
 
   return (
     <div className="w-full">
       {/* Banner Principal de Contato */}
       <PageBanner
-        eyebrow="Canais Oficiais"
+        eyebrow="Atendimento em Salvador"
         title="Fale Conosco"
-        subtitle="Estamos à disposição para receber você, tirar dúvidas e iniciar o planejamento da sua festa dos sonhos."
+        subtitle="Estamos à disposição para receber você, tirar dúvidas e iniciar o planejamento da sua celebração com total atenção."
         imageSrc="/images/hero/hero-main.webp"
+        imageAlt="Salão decorado para recepção em Salvador"
       />
 
-      {/* Conteúdo Principal: Dados de Contato e Formulário */}
-      <section className="py-20 md:py-32 bg-ink relative overflow-hidden bg-grain">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            {/* Informações Institucionais de Contato */}
-            <div className="lg:col-span-5 space-y-8">
-              <SectionHeading
-                number="01"
-                eyebrow="Atendimento Personalizado"
-                title="Canais de"
-                highlight="relacionamento"
-                className="mb-6"
-              />
+      {/* Conteúdo Principal: 4 Cards em Grid Reorganizado */}
+      <section className="py-20 md:py-28 bg-ink relative overflow-hidden bg-grain">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Título Centralizado no Topo */}
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <SectionHeading
+              number="01"
+              eyebrow="Atendimento Personalizado"
+              title="Canais de"
+              highlight="relacionamento"
+              className="justify-center items-center text-center"
+            />
+            <p className="text-sm sm:text-base text-ivory/70 font-sans font-light mt-3">
+              Escolha o canal mais prático para você. Respondemos com agilidade para conversar sobre a sua data.
+            </p>
+          </div>
 
-              <div className="space-y-6 text-sm text-ivory/80 font-sans">
-                {/* Telefone / WhatsApp */}
-                <div className="p-6 bg-espresso/50 border border-gold/20 space-y-2">
-                  <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
-                    WhatsApp Comercial
-                  </span>
-                  <a
-                    href={siteConfig.phone.whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-serif text-2xl text-ivory hover:text-gold transition-colors inline-block"
-                  >
-                    {siteConfig.phone.display}
-                  </a>
-                  <p className="text-xs text-ivory/60 pt-1">
-                    Atendimento de segunda a sábado com horário agendado.
-                  </p>
-                </div>
-
-                {/* E-mail */}
-                <div className="p-6 bg-espresso/50 border border-gold/20 space-y-2">
-                  <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
-                    E-mail Institucional
-                  </span>
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="font-serif text-lg text-ivory hover:text-gold transition-colors break-all"
-                  >
-                    {siteConfig.email}
-                  </a>
-                  <p className="text-xs text-ivory/60 pt-1">
-                    Envio de briefing formal e parcerias comerciais.
-                  </p>
-                </div>
-
-                {/* Endereço & CNPJ */}
-                <div className="p-6 bg-espresso/50 border border-gold/20 space-y-2">
-                  <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
-                    Endereço & Registro
-                  </span>
-                  <p className="text-sm text-ivory/90 leading-relaxed">
-                    {siteConfig.address.full}
-                  </p>
-                  <p className="text-xs text-ivory/70 pt-2 border-t border-gold/15">
-                    CNPJ: {siteConfig.cnpj}
-                  </p>
-                </div>
-
-                {/* Redes Sociais */}
-                <div className="p-6 bg-espresso/50 border border-gold/20 space-y-3">
-                  <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
-                    Redes Sociais
-                  </span>
-                  <div className="flex flex-col gap-2">
-                    <a
-                      href={siteConfig.social.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-gold hover:text-ivory uppercase tracking-widest flex items-center gap-2"
-                    >
-                      <span>Instagram {siteConfig.social.instagramUser}</span>
-                      <span>↗</span>
-                    </a>
-                  </div>
-                </div>
+          {/* Grid de 2 colunas no Desktop e 1 no Mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Card 1: WhatsApp Comercial */}
+            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold/50 transition-colors duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
+                  WhatsApp Comercial
+                </span>
+                <a
+                  href={siteConfig.phone.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-serif text-2xl text-ivory hover:text-gold transition-colors inline-block"
+                >
+                  {siteConfig.phone.display}
+                </a>
+                <p className="text-xs text-ivory/70 pt-1">
+                  Atendimento direto com Leandro Santana e equipe para alinhamento rápido de propostas.
+                </p>
+              </div>
+              <div className="pt-2">
+                <a
+                  href={siteConfig.phone.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium"
+                >
+                  <span>Iniciar conversa no WhatsApp</span>
+                  <span>↗</span>
+                </a>
               </div>
             </div>
 
-            {/* Formulário de Contato / Orçamento */}
-            <div className="lg:col-span-7">
-              <div className="mb-6">
-                <span className="text-xs uppercase tracking-widest text-gold font-sans font-medium">
-                  Envie sua Mensagem
+            {/* Card 2: E-mail Institucional */}
+            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold/50 transition-colors duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
+                  E-mail Institucional
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl text-ivory font-normal mt-1">
-                  Como podemos ajudar você?
-                </h3>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="font-serif text-lg text-ivory hover:text-gold transition-colors break-all inline-block"
+                >
+                  {siteConfig.email}
+                </a>
+                <p className="text-xs text-ivory/70 pt-1">
+                  Ideal para envio de briefings corporativos, parcerias e propostas formais.
+                </p>
               </div>
-              <Suspense fallback={<div className="p-10 text-center">Carregando...</div>}>
-                <ContactForm />
-              </Suspense>
+              <div className="pt-2">
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium"
+                >
+                  <span>Enviar mensagem por e-mail</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 3: Endereço & Registro com link Google Maps */}
+            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold/50 transition-colors duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
+                  Endereço & Registro
+                </span>
+                <a
+                  href={googleMapsDirectionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-ivory/90 leading-relaxed hover:text-gold transition-colors block"
+                >
+                  {siteConfig.address.full}
+                </a>
+                <p className="text-xs text-ivory/70 pt-2 border-t border-gold/15">
+                  CNPJ: {siteConfig.cnpj}
+                </p>
+              </div>
+              <div className="pt-2">
+                <a
+                  href={googleMapsDirectionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium"
+                >
+                  <span>Abrir rota no Google Maps</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 4: Redes Sociais */}
+            <div className="p-7 bg-espresso/50 border border-gold/20 hover:border-gold/50 transition-colors duration-300 flex flex-col justify-between space-y-4">
+              <div className="space-y-2">
+                <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
+                  Redes Sociais
+                </span>
+                <a
+                  href={siteConfig.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-serif text-2xl text-ivory hover:text-gold transition-colors inline-block"
+                >
+                  {siteConfig.social.instagramUser}
+                </a>
+                <p className="text-xs text-ivory/70 pt-1">
+                  Acompanhe os bastidores, montagens de salão e registros das celebrações na Bahia.
+                </p>
+              </div>
+              <div className="pt-2">
+                <a
+                  href={siteConfig.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-gold hover:text-ivory transition-colors font-medium"
+                >
+                  <span>Seguir no Instagram</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Único abaixo dos cards */}
+          <div className="mt-14 p-8 sm:p-10 bg-espresso-dark/90 border border-gold/30 text-center rounded-sm space-y-4">
+            <span className="text-[10px] uppercase tracking-widest text-gold font-medium block">
+              Planejamento Sob Medida
+            </span>
+            <h3 className="font-serif text-2xl sm:text-3xl text-ivory font-normal">
+              Prefere um orçamento detalhado?
+            </h3>
+            <p className="text-sm text-ivory/75 max-w-xl mx-auto font-sans font-light">
+              Conte-nos os detalhes do seu evento (tipo de festa, número estimado de convidados e data prevista) para receber uma proposta completa.
+            </p>
+            <div className="pt-3">
+              <Link
+                href="/orcamentos"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-gold hover:bg-gold-light text-ink text-xs uppercase tracking-widest font-medium transition-all duration-300 shadow-xl"
+              >
+                Solicitar orçamento
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Google Maps Embed sem API Key (Seção 14) */}
+      {/* Google Maps Embed sem API Key */}
       <section className="w-full bg-espresso-dark border-t border-gold/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
@@ -139,9 +212,15 @@ export default function ContatoPage() {
                 Visite nosso escritório de atendimento
               </h3>
             </div>
-            <p className="text-xs text-ivory/60 font-sans">
-              Luiz Anselmo, Salvador — BA
-            </p>
+            <a
+              href={googleMapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-gold hover:text-ivory uppercase tracking-wider transition-colors inline-flex items-center gap-1.5"
+            >
+              <span>Abrir no Google Maps</span>
+              <span>↗</span>
+            </a>
           </div>
 
           <div className="w-full h-[400px] md:h-[480px] border border-gold/30 overflow-hidden shadow-2xl relative">

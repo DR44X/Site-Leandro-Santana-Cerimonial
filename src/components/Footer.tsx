@@ -26,7 +26,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-sm text-ivory/70 leading-relaxed font-sans pt-2">
-              Eventos completos com sofisticação, emoção e cuidado em cada detalhe.
+              Assessoria completa, buffet e decoração com atendimento dedicado a você.
             </p>
             <p className="text-xs text-gold/80 italic font-serif">
               Salvador, Bahia e Região Metropolitana.

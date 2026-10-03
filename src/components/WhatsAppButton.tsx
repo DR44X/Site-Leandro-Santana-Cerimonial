@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/content/site";
 import { buildWhatsAppLink } from "@/lib/utils";
 
@@ -9,13 +10,49 @@ interface WhatsAppButtonProps {
   className?: string;
 }
 
+function getMessageForPath(pathname: string): string {
+  if (pathname.includes("/casamentos")) {
+    return "Olá! Quero orçamento para casamento em Salvador com Leandro Santana Cerimonial.";
+  }
+  if (pathname.includes("/15-anos")) {
+    return "Olá! Quero orçamento para festa de 15 anos em Salvador com Leandro Santana Cerimonial.";
+  }
+  if (pathname.includes("/formaturas")) {
+    return "Olá! Quero orçamento para formatura em Salvador com Leandro Santana Cerimonial.";
+  }
+  if (pathname.includes("/corporativos")) {
+    return "Olá! Quero orçamento para evento corporativo em Salvador com Leandro Santana Cerimonial.";
+  }
+  if (pathname.includes("/aniversarios")) {
+    return "Olá! Quero orçamento para festa de aniversário em Salvador com Leandro Santana Cerimonial.";
+  }
+  if (pathname.includes("/confraternizacoes")) {
+    return "Olá! Quero orçamento para confraternização em Salvador com Leandro Santana Cerimonial.";
+  }
+  if (pathname === "/servicos" || pathname === "/servicos/") {
+    return "Olá! Gostaria de conhecer os serviços da Leandro Santana Cerimonial em Salvador.";
+  }
+  if (pathname === "/galeria" || pathname === "/galeria/") {
+    return "Olá! Vi as fotos dos eventos e gostaria de solicitar um orçamento para o meu evento.";
+  }
+  if (pathname === "/orcamentos" || pathname === "/orcamentos/") {
+    return "Olá! Gostaria de uma proposta de orçamento personalizada para o meu evento.";
+  }
+  if (pathname === "/contato" || pathname === "/contato/") {
+    return "Olá! Gostaria de falar diretamente com a Leandro Santana Cerimonial.";
+  }
+  return siteConfig.phone.defaultMessage;
+}
+
 export function WhatsAppButton({ customMessage, className }: WhatsAppButtonProps) {
-  const href = buildWhatsAppLink(customMessage || siteConfig.phone.defaultMessage);
+  const pathname = usePathname();
+  const message = customMessage || getMessageForPath(pathname || "/");
+  const href = buildWhatsAppLink(message);
 
   return (
     <aside
       aria-label="Atendimento rápido pelo WhatsApp"
-      className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 ${className || ""}`}
+      className={`fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 transition-all duration-300 ${className || ""}`}
     >
       <a
         href={href}

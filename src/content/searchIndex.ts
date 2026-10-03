@@ -69,12 +69,12 @@ export const searchIndex: SearchItem[] = [
   {
     id: "page-quem-somos",
     title: "Quem Somos — A Assinatura Leandro Santana",
-    subtitle: "Mais de 15 anos de excelência, sofisticação e legado em eventos na Bahia",
+    subtitle: "Mais de 15 anos de dedicação, planejamento rigoroso e presença em eventos na Bahia",
     category: "paginas",
     categoryLabel: "Páginas & Ferramentas",
     url: "/quem-somos",
     tags: ["quem somos", "historia", "leandro santana", "fundador", "trajetoria", "missao", "valores"],
-    summary: "Conheça a história e o método de Leandro Santana, unindo precisão executiva a uma sensibilidade estética refinada para celebrações inesquecíveis.",
+    summary: "Conheça a história e o método de Leandro Santana, unindo precisão executiva ao acolhimento atento para a sua celebração.",
     highlights: [
       "Tradição aliada à inovação estética",
       "Coordenação executiva em tempo real",

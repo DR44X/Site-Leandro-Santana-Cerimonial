@@ -3,13 +3,23 @@ import { PageBanner } from "@/components/PageBanner";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Photo } from "@/components/Photo";
 import { Button } from "@/components/Button";
+import { MiniFAQ } from "@/components/MiniFAQ";
 import { CTA } from "@/components/CTA";
 import { servicesData } from "@/content/servicos";
 
 export const metadata = {
-  title: "Serviços",
+  title: "Serviços para Eventos em Salvador | Leandro Santana",
   description:
-    "Conheça os 7 serviços especializados de Leandro Santana Cerimonial: Cerimonial, Buffet completo, Decoração, Espaço, Bar de drinks, Som/DJ e Foto/Filmagem.",
+    "Conheça os serviços de Leandro Santana em Salvador: cerimonial, buffet, decoração, bar, música, espaço e cobertura fotográfica.",
+  alternates: {
+    canonical: "/servicos/",
+  },
+  openGraph: {
+    title: "Serviços para Eventos em Salvador | Leandro Santana",
+    description:
+      "Conheça os serviços de Leandro Santana em Salvador: cerimonial, buffet, decoração, bar, música, espaço e cobertura fotográfica.",
+    url: "/servicos/",
+  },
 };
 
 export default function ServicosPage() {
@@ -17,10 +27,11 @@ export default function ServicosPage() {
     <div className="w-full">
       {/* Banner da Página */}
       <PageBanner
-        eyebrow="Excelência Operacional"
+        eyebrow="Soluções Completas em Salvador"
         title="Nossos Serviços"
-        subtitle="Uma estrutura integrada de alta gastronomia, assessoria, cenografia e entretenimento para criar celebrações perfeitas em Salvador."
+        subtitle="Uma estrutura integrada de cerimonial, gastronomia, cenografia e música para realizar o seu evento em Salvador e região."
         imageSrc="/images/hero/hero-main.webp"
+        imageAlt="Salão decorado com mesa de banquete e iluminação cênica"
       />
 
       {/* Índice Rápido Editorial */}
@@ -61,41 +72,31 @@ export default function ServicosPage() {
                     isEven ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
-                  <div className="relative border border-gold/30 p-2 sm:p-3 bg-espresso/50 shadow-2xl">
+                  <div className="border border-gold/30 p-2 sm:p-3 bg-espresso/30 relative">
                     <Photo
                       id={servico.imageId}
                       aspectRatio="4:3"
-                      className="w-full"
-                      imageClassName="hover:scale-105 transition-transform duration-700 ease-out"
-                      sizes="(max-width: 1024px) 100vw, 600px"
+                      className="w-full shadow-2xl"
+                      imageClassName="hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 1024px) 100vw, 550px"
                     />
-
-                    {/* Badge com Numeração Editorial */}
-                    <div className="absolute -top-4 -left-4 w-14 h-14 bg-gold text-ink font-serif text-2xl font-bold flex items-center justify-center shadow-lg">
-                      {servico.number}
-                    </div>
                   </div>
                 </div>
 
-                {/* Conteúdo Descritivo */}
+                {/* Texto e Detalhes */}
                 <div
                   className={`lg:col-span-6 space-y-6 ${
                     isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
-                  <div className="space-y-2">
-                    <span className="text-xs uppercase tracking-widest text-gold font-sans font-medium">
-                      Serviço {servico.number} de 07
-                    </span>
-                    <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ivory font-normal leading-tight">
-                      {servico.title}
-                    </h2>
-                    <p className="font-serif text-lg text-gold/90 italic pt-1">
-                      &ldquo;{servico.tagline}&rdquo;
-                    </p>
-                  </div>
+                  <SectionHeading
+                    number={servico.number}
+                    eyebrow={servico.tagline}
+                    title={servico.title}
+                    className="mb-2"
+                  />
 
-                  <p className="text-base sm:text-lg text-ivory/75 font-sans font-light leading-relaxed">
+                  <p className="text-base sm:text-lg text-ivory/80 font-sans font-light leading-relaxed">
                     {servico.description}
                   </p>
 
@@ -131,10 +132,13 @@ export default function ServicosPage() {
         </div>
       </section>
 
-      {/* Um Único CTA de Orçamento ao Final da Página (Seção 11) */}
+      {/* Mini-FAQ */}
+      <MiniFAQ />
+
+      {/* Um Único CTA de Orçamento ao Final da Página */}
       <CTA
         title="Quer integrar nossos serviços para o seu evento?"
-        subtitle="Monte seu pacote completo de cerimonial, buffet, decoração e produção com vantagens exclusivas."
+        subtitle="Monte seu pacote de cerimonial, buffet, decoração e produção com atendimento dedicado para a sua data."
         buttonLabel="Solicitar orçamento integrado"
         buttonHref="/orcamentos"
       />

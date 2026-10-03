@@ -12,7 +12,7 @@ interface CTAProps {
 }
 
 export function CTA({
-  title = "Vamos criar juntos um momento inesquecível?",
+  title = "Vamos planejar o seu evento em Salvador?",
   subtitle = "Entre em contato conosco e receba uma proposta personalizada para a sua celebração.",
   buttonLabel = "Solicitar orçamento",
   buttonHref = "/orcamentos",
@@ -24,7 +24,7 @@ export function CTA({
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero/hero-secondary.webp"
-          alt="Brinde de celebração e taças em comemoração inesquecível"
+          alt="Brinde de celebração com taças em comemoração na Bahia"
           fill
           className="object-cover object-center opacity-30"
           sizes="100vw"

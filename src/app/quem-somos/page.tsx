@@ -3,70 +3,81 @@ import { PageBanner } from "@/components/PageBanner";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Photo } from "@/components/Photo";
 import { Button } from "@/components/Button";
+import { MiniFAQ } from "@/components/MiniFAQ";
 import { CTA } from "@/components/CTA";
 
 export const metadata = {
-  title: "Quem Somos",
+  title: "Quem Somos | Leandro Santana Cerimonial Salvador",
   description:
-    "Conheça a história de Leandro Santana Cerimonial, nossa essência em alta produção de eventos e a estrutura completa em Salvador/BA.",
+    "Conheça a trajetória de Leandro Santana na produção de eventos em Salvador. Condução segura, cuidado com as pessoas e presença em cada etapa.",
+  alternates: {
+    canonical: "/quem-somos/",
+  },
+  openGraph: {
+    title: "Quem Somos | Leandro Santana Cerimonial Salvador",
+    description:
+      "Conheça a trajetória de Leandro Santana na produção de eventos em Salvador. Condução segura, cuidado com as pessoas e presença em cada etapa.",
+    url: "/quem-somos/",
+  },
 };
 
 const ESSENCIA_ITEMS = [
   {
     num: "01",
-    title: "Emoção",
-    desc: "Cada celebração é única. Trabalhamos para que os anfitriões e convidados sintam a verdade e a beleza de cada instante.",
+    title: "Emoção Genuína",
+    desc: "Cada celebração é única. Trabalhamos para que você e seus convidados sintam a verdade e a beleza de cada instante.",
   },
   {
     num: "02",
-    title: "Sofisticação",
-    desc: "Estética refinada e bom gosto sem excessos. Harmonizamos flores nobres, texturas e gastronomia com elegância discreta.",
+    title: "Bom Gosto",
+    desc: "Harmonizamos flores, iluminação e gastronomia com elegância equilibrada, valorizando o estilo dos anfitriões.",
   },
   {
     num: "03",
-    title: "Organização",
-    desc: "Cronogramas minuciosos, gestão preventiva e processos claros para que nada seja deixado ao acaso.",
+    title: "Organização Preventiva",
+    desc: "Cronogramas minuciosos, gestão de imprevistos e processos claros para que nada seja deixado ao acaso.",
   },
   {
     num: "04",
     title: "Experiência Completa",
-    desc: "Do primeiro café de planejamento até o encerramento da pista, uma jornada fluida, acolhedora e memorável.",
+    desc: "Do primeiro café de planejamento até o encerramento da festa, oferecemos uma jornada fluida e acolhedora.",
   },
   {
     num: "05",
-    title: "Cuidado com Cada Detalhe",
-    desc: "O segredo de um evento inesquecível reside na delicadeza dos pequenos gestos e nos detalhes que encantam os olhos.",
+    title: "Atenção às Pessoas",
+    desc: "O segredo de um evento bem realizado reside no respeito aos convidados e na dedicação calorosa aos anfitriões.",
   },
 ];
 
 const ESTRUTURA_ITEMS = [
   {
-    title: "Cerimonial & Assessoria",
-    desc: "Equipe especializada na condução serena de protocolos, recepção de convidados e gestão do tempo.",
+    title: "Cerimonial & Assessoria Executiva",
+    desc: "Roteiro minucioso, alinhamento técnico com fornecedores e coordenação atenta de bastidores.",
   },
   {
-    title: "Buffet Próprio & Gastronomia",
-    desc: "Cozinha equipada, brigada de garçons qualificada e cardápios autorais com insumos nobres.",
+    title: "Buffet Próprio & Gastronomia Contemporânea",
+    desc: "Cardápios equilibrados com ingredientes frescos, empratados elegantes e serviço volante sem interrupções.",
   },
   {
-    title: "Decoração & Cenografia",
-    desc: "Projetos visuais integrados, acervo próprio de peças, mobiliário contemporâneo e floristas de alto padrão.",
+    title: "Decoração & Cenografia Autoral",
+    desc: "Projetos personalizados que combinam arranjos florais naturais, mobiliário nobre e iluminação cênica.",
   },
   {
-    title: "Equipe & Fornecedores Homologados",
-    desc: "Rede sólida de parceiros técnicos: sonorização linear, iluminação robótica, DJs, foto e filmagem.",
+    title: "Espaço Parceiro & Parcerias Estruturadas",
+    desc: "Conexão direta com os salões, casas de praia e sítios mais adequados ao perfil da sua comemoração na Bahia.",
   },
 ];
 
 export default function QuemSomosPage() {
   return (
     <div className="w-full">
-      {/* Banner Interno */}
+      {/* Banner Principal */}
       <PageBanner
-        eyebrow="Nossa Trajetória"
+        eyebrow="Origem e Propósito"
         title="Quem Somos"
-        subtitle="Dedicados à arte de transformar celebrações em memórias eternas com elegância e assinatura própria."
+        subtitle="Uma trajetória dedicada a transformar sonhos em celebrações organizadas com rigor técnico e calor humano em Salvador."
         imageSrc="/images/hero/hero-main.webp"
+        imageAlt="Leandro Santana e equipe de cerimonial em celebração"
       />
 
       {/* História da Marca */}
@@ -98,19 +109,19 @@ export default function QuemSomosPage() {
                 number="01"
                 eyebrow="Origem e Propósito"
                 title="Experiência consolidada em uma"
-                highlight="nova fase autoral"
+                highlight="fase autoral"
                 className="mb-4"
               />
 
               <div className="space-y-5 text-ivory/80 font-sans font-light leading-relaxed text-base sm:text-lg">
                 <p>
-                  A trajetória de <strong className="text-ivory font-normal">Leandro Santana</strong> no mercado de eventos baiano foi construída sobre os pilares da seriedade, da sensibilidade humana e do rigor técnico.
+                  A trajetória de <strong className="text-ivory font-normal">Leandro Santana</strong> no mercado de eventos baiano foi construída sobre os pilares da seriedade, da sensibilidade humana e do rigor técnico nos prazos.
                 </p>
                 <p>
-                  Tendo a reconhecida história da <strong className="text-gold font-normal">DeCasa</strong> como base sólida de aprendizado, realização de grandes sonhos e relacionamento com clientes exigentes, Leandro Santana consolidou um padrão inconfundível de entrega.
+                  Tendo a reconhecida história da <strong className="text-gold font-normal">DeCasa</strong> como base sólida de aprendizado, realização de grandes sonhos e relacionamento com clientes exigentes, Leandro Santana consolidou um padrão confiável de entrega.
                 </p>
                 <p>
-                  Hoje, em uma nova e madura fase de sua carreira, a marca própria <strong className="text-ivory font-normal">Leandro Santana Cerimonial</strong> expressa a síntese dessa vivência: um atendimento estritamente personalizado, onde cada cliente dialoga diretamente com quem pensa e executa sua festa.
+                  Hoje, em sua fase de marca própria, a <strong className="text-ivory font-normal">Leandro Santana Cerimonial</strong> expressa a síntese dessa vivência: um atendimento estritamente personalizado, onde você dialoga diretamente com quem planeja e executa sua comemoração.
                 </p>
                 <p className="text-sm text-gold/90 italic font-serif pt-2 border-l-2 border-gold/40 pl-4">
                   &ldquo;Nosso compromisso é permitir que você aproveite cada instante como o convidado de honra da sua própria história, enquanto nós cuidamos de cada compasso nos bastidores.&rdquo;
@@ -167,7 +178,7 @@ export default function QuemSomosPage() {
                 number="03"
                 eyebrow="Capacidade Operacional"
                 title="Nossa Estrutura"
-                subtitle="Integramos todas as pontas da produção para garantir harmonia estética e pontualidade absoluta."
+                subtitle="Integramos todas as pontas da produção para garantir harmonia visual e pontualidade na execução."
                 className="mb-6"
               />
 
@@ -200,10 +211,13 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
+      {/* Mini-FAQ */}
+      <MiniFAQ />
+
       {/* CTA Final */}
       <CTA
-        title="Planeje seu evento com quem entende do assunto"
-        subtitle="Estamos à disposição para receber você, entender seus desejos e criar uma proposta exclusiva."
+        title="Planeje seu evento com quem cuida de você"
+        subtitle="Estamos à disposição para receber você, entender seus desejos e criar uma proposta personalizada."
         buttonLabel="Solicitar orçamento"
         buttonHref="/orcamentos"
       />

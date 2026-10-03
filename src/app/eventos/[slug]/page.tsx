@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Photo } from "@/components/Photo";
 import { Button } from "@/components/Button";
 import { CTA } from "@/components/CTA";
+import { MiniFAQ } from "@/components/MiniFAQ";
 import { getImage } from "@/content/images";
 
 interface EventDetailPageProps {
@@ -27,13 +28,24 @@ export async function generateMetadata({ params }: EventDetailPageProps) {
 
   if (!evento) {
     return {
-      title: "Evento não encontrado",
+      title: "Evento não encontrado | Leandro Santana",
     };
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.leandrosantanacerimonial.com.br";
+  const pageUrl = `${siteUrl}/eventos/${evento.slug}/`;
+
   return {
-    title: `${evento.title} | Leandro Santana Cerimonial`,
+    title: evento.pageTitle,
     description: evento.metaDescription,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title: evento.pageTitle,
+      description: evento.metaDescription,
+      url: pageUrl,
+    },
   };
 }
 
@@ -46,19 +58,40 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
   }
 
   const heroImage = getImage(evento.heroImageId);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.leandrosantanacerimonial.com.br";
+
+  // FAQPage JSON-LD Schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: evento.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <div className="w-full">
+      {/* FAQPage JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Banner Principal com Imagem e Título da Categoria */}
       <PageBanner
-        eyebrow="Categoria de Evento"
+        eyebrow="Categoria de Evento em Salvador"
         title={evento.title}
         subtitle={evento.bannerSubtitle}
         imageSrc={heroImage.src}
         imageAlt={heroImage.alt}
       />
 
-      {/* Bloco 1: Texto Comercial e Apresentação */}
+      {/* Bloco 1: Texto Comercial e Apresentação Detalhada */}
       <section className="py-20 md:py-28 bg-ink relative overflow-hidden bg-grain">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -79,8 +112,8 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
             <div className="lg:col-span-7 space-y-6">
               <SectionHeading
                 number="01"
-                eyebrow="A Nossa Abordagem"
-                title={`Como produzimos o seu`}
+                eyebrow="Planejamento e Condução"
+                title="Como organizamos o seu"
                 highlight={evento.title}
                 className="mb-4"
               />
@@ -101,7 +134,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
                 </Button>
 
                 <Button href="/eventos" variant="secondary" size="md">
-                  Voltar aos eventos
+                  Ver todas as categorias
                 </Button>
               </div>
             </div>
@@ -109,16 +142,16 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
         </div>
       </section>
 
-      {/* Bloco 2: Lista de Tópicos (se houver no briefing) */}
+      {/* Bloco 2: Lista de Tópicos e Escopo */}
       {evento.topics && evento.topics.length > 0 && (
         <section className="py-20 md:py-28 bg-espresso border-t border-gold/20 relative overflow-hidden bg-grain">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
               <SectionHeading
                 number="02"
-                eyebrow="Planejamento e Escopo"
-                title="Destaques da Produção"
-                subtitle="Etapas e elementos coordenados para garantir o sucesso absoluto da festa."
+                eyebrow="Escopo do Serviço"
+                title="O que cuidamos para você"
+                subtitle="Etapas organizadas para que você aproveite sua comemoração sem imprevistos."
                 className="mb-0"
               />
             </div>
@@ -142,7 +175,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
         </section>
       )}
 
-      {/* Bloco 3: Galeria da Categoria (somente se hasGallery: true) */}
+      {/* Bloco 3: Galeria da Categoria (se houver) */}
       {evento.hasGallery && evento.galleryImageIds && (
         <section className="py-20 md:py-28 bg-ink border-t border-gold/20 relative overflow-hidden bg-grain">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -150,7 +183,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
               number={evento.topics ? "03" : "02"}
               eyebrow="Registros da Categoria"
               title="Fotografias e Inspirações"
-              subtitle={`Um vislumbre da atmosfera e dos detalhes criados para ${evento.title.toLowerCase()}.`}
+              subtitle={`Veja registros reais criados para eventos de ${evento.title.toLowerCase()} em Salvador.`}
             />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -179,7 +212,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
         </section>
       )}
 
-      {/* Bloco 4: Serviços Relacionados (se houver) */}
+      {/* Bloco 4: Serviços Relacionados */}
       {evento.relatedServices && evento.relatedServices.length > 0 && (
         <section className="py-20 md:py-28 bg-espresso-dark border-t border-gold/20 relative overflow-hidden bg-grain">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -187,7 +220,7 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
               number={evento.hasGallery ? "04" : "03"}
               eyebrow="Estrutura Integrada"
               title="Serviços Relacionados"
-              subtitle="Itens e soluções que compõem o pacote ideal para esta celebração."
+              subtitle="Soluções que você pode combinar em um único planejamento contratual."
             />
 
             <div className="flex flex-wrap gap-3">
@@ -215,10 +248,17 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
         </section>
       )}
 
-      {/* Bloco 5: CTA Final com Redirecionamento com Query Slug */}
+      {/* Bloco 5: Mini-FAQ da Categoria de Evento */}
+      <MiniFAQ
+        items={evento.faqs}
+        title={`Dúvidas sobre ${evento.title}`}
+        eyebrow="Perguntas Frequentes"
+      />
+
+      {/* Bloco 6: CTA Final com Redirecionamento com Query Slug */}
       <CTA
-        title={`Pronto para planejar sua celebração de ${evento.title.toLowerCase()}?`}
-        subtitle="Preencha o formulário e receba nosso retorno com agilidade e atendimento consultivo."
+        title={`Vamos planejar o seu evento de ${evento.title.toLowerCase()}?`}
+        subtitle="Entre em contato para receber uma proposta alinhada ao número de convidados e local da sua data."
         buttonLabel={evento.ctaLabel}
         buttonHref={`/orcamentos?evento=${evento.slug}`}
       />

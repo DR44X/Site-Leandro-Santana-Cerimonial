@@ -14,8 +14,8 @@ interface HeroProps {
 }
 
 export function Hero({
-  title = "Transformamos eventos em experiências inesquecíveis",
-  subtitle = "Cerimonial, buffet, decoração e produção completa para momentos únicos.",
+  title = "Planejamos e produzimos o seu evento com atenção e método",
+  subtitle = "Cerimonial, buffet, decoração e assessoria completa em Salvador e Litoral Norte.",
   primaryCtaLabel = "Solicite seu orçamento",
   primaryCtaHref = "/orcamentos",
   secondaryCtaLabel = "Conheça nossos eventos",
@@ -33,6 +33,7 @@ export function Hero({
             loop
             muted
             playsInline
+            preload="metadata"
             poster="/images/hero/hero-main.webp"
             className="w-full h-full object-cover object-center scale-105 transition-opacity duration-1000"
             onError={() => setVideoFailed(true)}

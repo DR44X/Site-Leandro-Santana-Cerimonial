@@ -44,9 +44,9 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: "Leandro Santana Cerimonial",
-  tagline: "Eventos completos com sofisticação, emoção e cuidado em cada detalhe.",
+  tagline: "Assessoria completa, gastronomia e ambientação com atenção dedicada a você.",
   description:
-    "Cerimonial, buffet, decoração e produção de eventos em Salvador/BA. Transformamos casamentos, 15 anos, formaturas e eventos corporativos em experiências inesquecíveis.",
+    "Cerimonial, buffet e decoração de eventos em Salvador/BA. Planejamento completo para casamentos, 15 anos, formaturas e eventos corporativos.",
   phone: {
     display: "(71) 98321-6686",
     raw: "5571983216686",
@@ -55,10 +55,10 @@ export const siteConfig: SiteConfig = {
   },
   email: "atendimento@leandrosantanacerimonial.com.br",
   address: {
-    full: "Rua Hélio de Oliveira, nº 215, Pavimento, Luiz Anselmo, Salvador/BA, CEP 40.261-060",
+    full: "Rua Hélio de Oliveira, nº 215, Luiz Anselmo, Salvador/BA, CEP 40.261-060",
     street: "Rua Hélio de Oliveira",
     number: "215",
-    complement: "Pavimento",
+    complement: "",
     neighborhood: "Luiz Anselmo",
     city: "Salvador",
     state: "BA",
