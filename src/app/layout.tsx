@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { ThemeProvider } from "@/components/ThemeContext";
 import { siteConfig } from "@/content/site";
 
 const cormorant = Cormorant_Garamond({
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Leandro Santana Cerimonial",
   },
   description:
-    "Cerimonial, buffet, decoração e produção de eventos em Salvador/BA. Transformamos casamentos, 15 anos, formaturas e eventos corporativos em experiências inesquecíveis.",
+    "Site institucional de luxo especializado em assessoria, cerimonial, buffet gastronômico e decoração cenográfica em Salvador e Litoral Norte da Bahia.",
   keywords: [
     "cerimonial Salvador",
     "eventos Salvador",
@@ -133,35 +134,42 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={`${cormorant.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.add('light');document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark');document.documentElement.classList.remove('light')}}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="font-sans bg-ink text-ivory antialiased selection:bg-gold selection:text-ink min-h-screen flex flex-col">
-        {/* Skip Link para acessibilidade */}
-        <a
-          href="#conteudo-principal"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-gold focus:text-ink focus:font-medium focus:outline-none"
-        >
-          Pular para o conteúdo principal
-        </a>
+        <ThemeProvider>
+          {/* Skip Link para acessibilidade */}
+          <a
+            href="#conteudo-principal"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-gold focus:text-ink focus:font-medium focus:outline-none"
+          >
+            Pular para o conteúdo principal
+          </a>
 
-        {/* Cabeçalho global com menu de 7 itens */}
-        <Header />
+          {/* Cabeçalho global com menu de 7 itens */}
+          <Header />
 
-        {/* Conteúdo da página */}
-        <main id="conteudo-principal" className="flex-1 w-full">
-          {children}
-        </main>
+          {/* Conteúdo da página */}
+          <main id="conteudo-principal" className="flex-1 w-full">
+            {children}
+          </main>
 
-        {/* Botão flutuante WhatsApp */}
-        <WhatsAppButton />
+          {/* Botão flutuante WhatsApp */}
+          <WhatsAppButton />
 
-        {/* Rodapé institucional com 4 colunas */}
-        <Footer />
+          {/* Rodapé institucional com 4 colunas */}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

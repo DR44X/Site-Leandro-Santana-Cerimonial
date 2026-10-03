@@ -42,6 +42,12 @@ export function Photo({
   const resolvedFoco = customFoco || manifestData?.foco || "center center";
   const resolvedRatio = aspectRatio || manifestData?.proporcao || "4:3";
 
+  const [currentSrc, setCurrentSrc] = useState(resolvedSrc);
+
+  React.useEffect(() => {
+    setCurrentSrc(resolvedSrc);
+  }, [resolvedSrc]);
+
   const ratioClasses: Record<string, string> = {
     "16:9": "aspect-[16/9]",
     "4:3": "aspect-[4/3]",
@@ -64,7 +70,7 @@ export function Photo({
       }}
     >
       <Image
-        src={resolvedSrc}
+        src={currentSrc}
         alt={resolvedAlt}
         fill={fill}
         sizes={sizes}
@@ -72,6 +78,11 @@ export function Photo({
         loading={priority ? undefined : "lazy"}
         decoding="async"
         onLoad={() => setIsLoaded(true)}
+        onError={() => {
+          if (currentSrc !== "/images/equipe/leandro-santana.webp") {
+            setCurrentSrc("/images/equipe/leandro-santana.webp");
+          }
+        }}
         className={cn(
           "object-cover transition-all duration-700 ease-out",
           isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105",

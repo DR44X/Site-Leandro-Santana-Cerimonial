@@ -3,50 +3,91 @@
 @tailwind utilities;
 
 :root {
-  --ink: #0B0908;
-  --espresso: #2A1D17;
-  --ivory: #F6F0E6;
-  --champagne: #E8D8BC;
-  --nude: #D9BFA9;
-  --gold: #B8975A;
-  --gold-rgb: 184, 151, 90;
+  /* Tema Escuro de Assinatura (dark - padrão) */
+  --ink-rgb: 11 9 8;
+  --ink-light-rgb: 22 19 17;
+  --ink-dark-rgb: 5 4 3;
+
+  --espresso-rgb: 42 29 23;
+  --espresso-light-rgb: 61 43 34;
+  --espresso-dark-rgb: 27 18 14;
+
+  --ivory-rgb: 246 240 230;
+  --ivory-dark-rgb: 236 226 208;
+  --ivory-light-rgb: 250 247 242;
+
+  --champagne-rgb: 232 216 188;
+  --nude-rgb: 217 191 169;
+
+  --gold-rgb: 184 151 90;
+  --gold-light-rgb: 204 169 108;
+  --gold-dark-rgb: 158 127 67;
+
+  --ink: rgb(var(--ink-rgb));
+  --espresso: rgb(var(--espresso-rgb));
+  --ivory: rgb(var(--ivory-rgb));
+  --champagne: rgb(var(--champagne-rgb));
+  --nude: rgb(var(--nude-rgb));
+  --gold: rgb(var(--gold-rgb));
+}
+
+html.light {
+  /* Tema Claro Editorial (light - Estilo Vogue Weddings) */
+  --ink-rgb: 250 248 245; /* Alabastro/marfim suave #FAF8F5 */
+  --ink-light-rgb: 255 255 255;
+  --ink-dark-rgb: 240 236 230;
+
+  --espresso-rgb: 243 237 228; /* Creme nobre perolado #F3EDE4 */
+  --espresso-light-rgb: 248 244 238;
+  --espresso-dark-rgb: 235 228 218;
+
+  --ivory-rgb: 24 19 16; /* Carvão profundo de alto contraste #181310 */
+  --ivory-dark-rgb: 12 9 8;
+  --ivory-light-rgb: 55 45 40;
+
+  --champagne-rgb: 216 198 174;
+  --nude-rgb: 198 175 155;
+
+  --gold-rgb: 158 122 62; /* Ouro envelhecido #9E7A3E */
+  --gold-light-rgb: 180 142 78;
+  --gold-dark-rgb: 135 102 48;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    color-scheme: light dark;
-    background-color: var(--ink);
-    color: var(--ivory);
+    background-color: rgb(var(--ink-rgb));
+    color: rgb(var(--ivory-rgb));
     font-family: var(--font-inter), sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   body {
-    background-color: var(--ink);
-    color: var(--ivory);
+    background-color: rgb(var(--ink-rgb));
+    color: rgb(var(--ivory-rgb));
     min-height: 100vh;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    selection-background-color: var(--gold);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
-    background-color: #B8975A;
-    color: #0B0908;
+    background-color: rgb(var(--gold-rgb));
+    color: rgb(var(--ink-rgb));
   }
 
   /* Acessibilidade: foco visível */
   :focus-visible {
-    outline: 2px solid var(--gold);
+    outline: 2px solid rgb(var(--gold-rgb));
     outline-offset: 3px;
   }
 }
 
-/* Grão fotográfico editorial para seções escuras (< 4% de opacidade) */
+/* Grão fotográfico editorial de baixa opacidade */
 .bg-grain {
-  background-image: radial-gradient(rgba(232, 216, 188, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(rgba(var(--gold-rgb), 0.05) 1px, transparent 0);
   background-size: 24px 24px;
 }
 

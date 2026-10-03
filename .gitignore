@@ -16,4 +16,5 @@ dist/
 .DS_Store
 Thumbs.db
 cada de festa/
+staging-photos/
 !public/videos/hero.mp4

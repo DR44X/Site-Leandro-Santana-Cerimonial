@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { PageBanner } from "@/components/PageBanner";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ContactForm } from "@/components/ContactForm";
+import { EventPlanningChecklist } from "@/components/EventPlanningChecklist";
 import { siteConfig } from "@/content/site";
 
 export const metadata = {
@@ -20,6 +21,9 @@ export default function OrcamentosPage() {
         subtitle="Preencha os detalhes da sua celebração e receba um atendimento ágil e dedicado da nossa equipe especializada."
         imageSrc="/images/hero/hero-secondary.webp"
       />
+
+      {/* Checklist Interativo de Planejamento de Eventos */}
+      <EventPlanningChecklist />
 
       {/* Seção Principal do Formulário */}
       <section className="py-20 md:py-32 bg-ink relative overflow-hidden bg-grain">

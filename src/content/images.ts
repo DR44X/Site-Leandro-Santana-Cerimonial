@@ -48,13 +48,13 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   // ==========================================
   "leandro-santana": {
     id: "leandro-santana",
-    src: "/images/equipe/leandro-santana.webp",
+    src: "/ChatGPT-Image-19-de-mai.-de-2026--18_18_07-640w.png",
     alt: "Leandro Santana, cerimonialista e produtor de eventos de luxo em Salvador",
     categoria: "equipe",
     proporcao: "3:4",
-    foco: "top center",
+    foco: "center center",
     isTemporaria: false,
-    nota: "Retrato autêntico de Leandro Santana em traje de gala",
+    nota: "Retrato oficial de Leandro Santana em traje de gala",
   },
   "bastidores-evento": {
     id: "bastidores-evento",

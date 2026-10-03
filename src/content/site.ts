@@ -86,13 +86,14 @@ export const siteConfig: SiteConfig = {
     { label: "Orçamentos", href: "/orcamentos" },
     { label: "Contato", href: "/contato" },
   ],
-  // Menu do rodapé incluindo Orçamentos para acesso completo
+  // Menu do rodapé incluindo Orçamentos e Blog para acesso completo
   footerNavigation: [
     { label: "Home", href: "/" },
     { label: "Quem Somos", href: "/quem-somos" },
     { label: "Eventos", href: "/eventos" },
     { label: "Serviços", href: "/servicos" },
     { label: "Galeria", href: "/galeria" },
+    { label: "Blog & Dicas", href: "/blog" },
     { label: "Orçamentos", href: "/orcamentos" },
     { label: "Contato", href: "/contato" },
   ],
