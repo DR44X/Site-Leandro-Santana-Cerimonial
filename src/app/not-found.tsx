@@ -1,14 +1,21 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/Button";
 
 export default function NotFound() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-ink relative px-4 sm:px-6 lg:px-8 py-24 bg-grain">
       <div className="max-w-xl mx-auto text-center space-y-8 relative z-10">
-        {/* Monograma */}
-        <div className="w-16 h-16 border border-gold/60 mx-auto flex items-center justify-center bg-espresso/50 shadow-xl">
-          <span className="font-serif text-2xl tracking-wider text-gold font-semibold">LS</span>
+        {/* Logo Oficial */}
+        <div className="relative w-20 h-20 mx-auto transition-transform duration-500 hover:scale-105">
+          <Image
+            src="/images/logo/logo-leandro-santana.webp"
+            alt="Leandro Santana Cerimonial | DeCasa"
+            fill
+            sizes="80px"
+            className="object-contain"
+          />
         </div>
 
         <div className="space-y-3">

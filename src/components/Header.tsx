@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Search } from "lucide-react";
 import { siteConfig } from "@/content/site";
@@ -124,22 +125,28 @@ export function Header() {
       >
         {/* Navbar com 100% da largura útil, margem de segurança e Flexbox justify-between */}
         <div className="w-full px-4 sm:px-6 flex items-center justify-between gap-2 lg:gap-3 xl:gap-6">
-          {/* Zona 1: Logo / Monograma */}
+          {/* Zona 1: Logo Oficial Leandro Santana | Cerimonial | DeCasa */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-4 shrink-0"
-            aria-label="Leandro Santana Cerimonial - Página Inicial"
+            className="flex items-center group focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-4 shrink-0"
+            aria-label="Leandro Santana Cerimonial | DeCasa - Página Inicial"
           >
-            <div className="w-9 h-9 min-w-[36px] min-h-[36px] border border-gold/60 group-hover:border-gold flex items-center justify-center bg-espresso/50 transition-colors duration-500 shrink-0 rounded">
-              <span className="font-serif text-sm sm:text-base tracking-wider text-gold font-semibold">LS</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-xs sm:text-sm lg:text-base tracking-wider text-ivory group-hover:text-gold transition-colors duration-500 font-medium whitespace-nowrap leading-tight">
-                LEANDRO SANTANA
-              </span>
-              <span className="text-[7.5px] sm:text-[8.5px] tracking-widest text-gold uppercase font-light whitespace-nowrap">
-                Cerimonial & Eventos
-              </span>
+            <div
+              className={cn(
+                "relative shrink-0 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105",
+                isScrolled
+                  ? "w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12"
+                  : "w-11 h-11 sm:w-13 sm:h-13 lg:w-14 lg:h-14"
+              )}
+            >
+              <Image
+                src="/images/logo/logo-leandro-santana.webp"
+                alt="Leandro Santana Cerimonial | DeCasa"
+                fill
+                priority
+                sizes="(max-width: 640px) 44px, (max-width: 1024px) 52px, 56px"
+                className="object-contain"
+              />
             </div>
           </Link>
 

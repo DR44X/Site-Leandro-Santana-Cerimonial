@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/content/site";
 
 export function Footer() {
@@ -12,19 +13,21 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16 border-b border-gold/15">
           {/* Coluna 1: Marca & Síntese */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 border border-gold/70 flex items-center justify-center bg-espresso">
-                <span className="font-serif text-lg tracking-wider text-gold font-semibold">LS</span>
+            <Link
+              href="/"
+              className="inline-block group focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-4"
+              aria-label="Leandro Santana Cerimonial | DeCasa - Página Inicial"
+            >
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105">
+                <Image
+                  src="/images/logo/logo-leandro-santana.webp"
+                  alt="Leandro Santana Cerimonial | DeCasa"
+                  fill
+                  sizes="(max-width: 640px) 80px, 96px"
+                  className="object-contain"
+                />
               </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-lg tracking-wider text-ivory font-medium">
-                  LEANDRO SANTANA
-                </span>
-                <span className="text-[9px] tracking-widest text-gold uppercase">
-                  Cerimonial & Eventos
-                </span>
-              </div>
-            </div>
+            </Link>
             <p className="text-sm text-ivory/70 leading-relaxed font-sans pt-2">
               Assessoria completa, buffet e decoração com atendimento dedicado a você.
             </p>
