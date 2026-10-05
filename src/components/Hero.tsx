@@ -94,6 +94,7 @@ export function Hero({
               href={secondaryCtaHref}
               variant="secondary"
               size="lg"
+              className="text-[#F6F0E6] border-[#F6F0E6]/50 bg-[#0B0908]/40 hover:bg-gold hover:border-gold hover:text-ink backdrop-blur-xs shadow-md font-medium"
             >
               {secondaryCtaLabel}
             </Button>

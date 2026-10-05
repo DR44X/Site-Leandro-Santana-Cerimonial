@@ -59,7 +59,7 @@ export function WhatsAppButton({ customMessage, className }: WhatsAppButtonProps
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar conosco no WhatsApp - Leandro Santana Cerimonial"
-        className="group flex items-center gap-3 bg-[#1F1916]/95 hover:bg-[#2A1D17] text-ivory border border-gold/40 hover:border-gold px-4 py-3 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-4 backdrop-blur-md animate-pulse-8s"
+        className="group flex items-center gap-3 bg-[#1F1916]/95 hover:bg-[#2A1D17] text-[#F6F0E6] border border-gold/40 hover:border-gold px-4 py-3 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-4 backdrop-blur-md animate-pulse-8s"
       >
         {/* WhatsApp Icon */}
         <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-[#25D366] text-white shadow-inner flex-shrink-0">
@@ -78,7 +78,7 @@ export function WhatsAppButton({ customMessage, className }: WhatsAppButtonProps
 
         <div className="hidden sm:flex flex-col text-left">
           <span className="text-[10px] tracking-wider uppercase text-gold font-medium">Fale conosco</span>
-          <span className="text-xs font-serif tracking-wide text-ivory">Orçamento no WhatsApp</span>
+          <span className="text-xs font-serif tracking-wide text-[#F6F0E6] font-normal">Orçamento no WhatsApp</span>
         </div>
       </a>
     </aside>

@@ -22,7 +22,7 @@ export function MobileCtaBar() {
         <span className="text-[10px] uppercase tracking-wider text-gold font-medium">
           Salvador / BA
         </span>
-        <span className="text-xs font-serif text-ivory font-normal">
+        <span className="text-xs font-serif text-[#F6F0E6] font-normal">
           Proposta personalizada
         </span>
       </div>
