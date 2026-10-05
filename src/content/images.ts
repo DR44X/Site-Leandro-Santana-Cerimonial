@@ -236,7 +236,7 @@ export const imageManifest: Record<string, ImageManifestItem> = {
   "servico-bar": {
     id: "servico-bar",
     src: "/images/servicos/bar.webp",
-    alt: "Bolo cenográfico escultural temático O Fantasma da Ópera e estrutura de bar requintada",
+    alt: "Bolo cenográfico escultural de luxo e confeitaria artística para eventos em Salvador",
     categoria: "servicos",
     proporcao: "3:4",
     foco: "center center",

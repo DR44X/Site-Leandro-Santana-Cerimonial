@@ -120,7 +120,7 @@ export function Header() {
           "fixed top-0 left-0 right-0 z-40 transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] w-full",
           isScrolled
             ? "bg-ink/95 backdrop-blur-md py-2.5 sm:py-3 border-b border-gold/20 shadow-xl"
-            : "bg-transparent py-5 sm:py-6 border-b border-transparent"
+            : "bg-gradient-to-b from-[#0B0908]/90 via-[#0B0908]/50 to-transparent py-5 sm:py-6 border-b border-transparent"
         )}
       >
         {/* Navbar com 100% da largura útil, margem de segurança e Flexbox justify-between */}
@@ -150,7 +150,7 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Zona 2: 7 Abas de Navegação com sublinhado animado suave */}
+          {/* Zona 2: 7 Abas de Navegação com sublinhado animado suave e contraste perfeito */}
           <nav
             aria-label="Navegação Principal"
             className="hidden lg:flex items-center gap-1 xl:gap-2 2xl:gap-3 shrink-0"
@@ -169,7 +169,9 @@ export function Header() {
                     "group relative px-2.5 xl:px-3 py-1.5 rounded text-[11px] xl:text-xs 2xl:text-sm uppercase tracking-wider xl:tracking-editorial transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] inline-flex flex-col items-center justify-center whitespace-nowrap focus-visible:outline-2 focus-visible:outline-gold",
                     isActive
                       ? "text-gold font-medium"
-                      : "text-ivory/80 hover:text-gold"
+                      : isScrolled
+                      ? "text-ivory/85 hover:text-gold font-normal"
+                      : "text-[#F6F0E6] hover:text-gold drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)] font-normal"
                   )}
                 >
                   <span className="relative pb-0.5">
@@ -193,7 +195,12 @@ export function Header() {
             {/* 1. Botão Solicite seu Orçamento */}
             <Link
               href="/orcamentos"
-              className="h-9 min-h-[36px] px-3 sm:px-3.5 xl:px-4 rounded border border-gold/70 text-gold hover:bg-gold hover:text-ink font-sans font-medium text-[10px] sm:text-[11px] tracking-wider uppercase transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap focus-visible:outline-2 focus-visible:outline-gold shrink-0"
+              className={cn(
+                "h-9 min-h-[36px] px-3 sm:px-3.5 xl:px-4 rounded border font-sans font-medium text-[10px] sm:text-[11px] tracking-wider uppercase transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap focus-visible:outline-2 focus-visible:outline-gold shrink-0 backdrop-blur-xs",
+                isScrolled
+                  ? "border-gold/70 text-gold hover:bg-gold hover:text-ink"
+                  : "border-gold bg-[#0B0908]/40 text-gold hover:bg-gold hover:text-ink shadow-sm"
+              )}
             >
               <span className="hidden sm:inline">Solicite seu orçamento</span>
               <span className="sm:hidden">Orçamento</span>
@@ -203,7 +210,12 @@ export function Header() {
             <button
               type="button"
               onClick={() => setIsSearchOpen(true)}
-              className="h-9 min-h-[36px] px-2.5 sm:px-3 rounded border border-gold/30 hover:border-gold bg-espresso/40 hover:bg-gold/10 text-gold inline-flex items-center justify-center gap-1.5 transition-all text-xs font-sans focus-visible:outline-2 focus-visible:outline-gold shrink-0"
+              className={cn(
+                "h-9 min-h-[36px] px-2.5 sm:px-3 rounded border hover:border-gold inline-flex items-center justify-center gap-1.5 transition-all text-xs font-sans focus-visible:outline-2 focus-visible:outline-gold shrink-0 backdrop-blur-xs",
+                isScrolled
+                  ? "border-gold/30 bg-espresso/40 hover:bg-gold/10 text-gold"
+                  : "border-gold/50 bg-[#0B0908]/40 hover:bg-gold/15 text-gold"
+              )}
               aria-label="Abrir busca rápida (Atalho: Command K ou Control K)"
               title="Buscar (⌘K)"
             >
@@ -222,7 +234,10 @@ export function Header() {
               ref={hamburgerButtonRef}
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden h-9 w-9 min-h-[36px] min-w-[36px] p-2 text-ivory hover:text-gold focus-visible:outline-2 focus-visible:outline-gold rounded inline-flex items-center justify-center shrink-0 border border-gold/30 bg-espresso/40"
+              className={cn(
+                "lg:hidden h-9 w-9 min-h-[36px] min-w-[36px] p-2 focus-visible:outline-2 focus-visible:outline-gold rounded inline-flex items-center justify-center shrink-0 border border-gold/40 bg-espresso/50 backdrop-blur-xs transition-colors",
+                isScrolled ? "text-ivory hover:text-gold" : "text-[#F6F0E6] hover:text-gold"
+              )}
               aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={isMobileMenuOpen}
             >

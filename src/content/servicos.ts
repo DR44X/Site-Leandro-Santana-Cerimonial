@@ -74,19 +74,19 @@ export const servicesData: ServiceItem[] = [
     ],
   },
   {
-    id: "bar",
+    id: "bolos-elegantes",
     number: "05",
-    title: "Bar de Drinks",
-    tagline: "Coquetelaria de autor com apresentações visuais deslumbrantes e sabor equilibrado.",
+    title: "Bolos Elegantes",
+    tagline: "Verdadeiras obras de arte da confeitaria artística que unem imponência estética e sabor inesquecível.",
     description:
-      "Uma das grandes atrações das festas modernas. Nosso bar une bartenders carismáticos, insumos frescos, destilados premium e criações autorais com e sem álcool que encantam convidados de todas as idades.",
+      "O ponto focal mais aguardado na mesa principal. Confeccionamos bolos cenográficos e artísticos sob medida, perfeitamente integrados ao conceito e à paleta da celebração — harmonizando acabamentos impecáveis em pasta americana nobre, flores de açúcar feitas à mão e recheios sofisticados da alta confeitaria.",
     imageId: "servico-bar",
     highlights: [
-      "Carta de drinks clássicos e autorais desenvolvidos para o evento",
-      "Bartenders qualificados com atendimento ágil e cortês",
-      "Estrutura de bar sofisticada com iluminação própria",
-      "Opções requintadas de coquetéis sem álcool para todas as idades",
-      "Copos, taças de cristal e guarnições frescas diferenciadas",
+      "Projetos autorais desenvolvidos em sintonia com a identidade visual da festa",
+      "Bolos cenográficos suntuosos e opções de bolo de corte para servir os convidados",
+      "Flores de açúcar esculpidas à mão, texturas orgânicas e detalhes em folha de ouro",
+      "Degustação prévia para seleção personalizada de massas e recheios finos",
+      "Montagem impecável e iluminação focal dedicada no centro da mesa de doces",
     ],
   },
   {
