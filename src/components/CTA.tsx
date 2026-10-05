@@ -20,7 +20,7 @@ export function CTA({
 }: CTAProps) {
   return (
     <section className={cn("relative py-28 md:py-36 overflow-hidden bg-ink", className)}>
-      {/* Imagem de Fundo Escurecida */}
+      {/* Imagem de Fundo Escurecida (mantida com sombra escura em ambos os temas) */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero/hero-secondary.webp"
@@ -29,7 +29,7 @@ export function CTA({
           className="object-cover object-center opacity-30"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/80 to-ink" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0908] via-[#0B0908]/85 to-[#0B0908]" />
       </div>
 
       {/* Conteúdo Central com Revelação Suave */}
@@ -40,11 +40,11 @@ export function CTA({
           <span className="h-[1px] w-8 bg-gold gold-line-draw origin-left" />
         </span>
 
-        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-ivory font-normal leading-[1.1] text-balance">
+        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-[#F6F0E6] font-normal leading-[1.1] text-balance">
           {title}
         </h2>
 
-        <p className="text-base sm:text-lg text-ivory/80 font-sans font-light max-w-xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-[#F6F0E6]/85 font-sans font-light max-w-xl mx-auto leading-relaxed">
           {subtitle}
         </p>
 

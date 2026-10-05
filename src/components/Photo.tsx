@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { getImage, type ImageManifestItem } from "@/content/images";
 import { cn } from "@/lib/utils";
@@ -30,7 +30,8 @@ export function Photo({
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   fill = true,
 }: PhotoProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
+  const imgRef = useRef<HTMLImageElement>(null);
 
   let manifestData: ImageManifestItem | null = null;
   if (id) {
@@ -40,13 +41,19 @@ export function Photo({
   const resolvedSrc = customSrc || manifestData?.src || "/images/hero/hero-main.webp";
   const resolvedAlt = customAlt || manifestData?.alt || "Leandro Santana Cerimonial";
   const resolvedFoco = customFoco || manifestData?.foco || "center center";
-  const resolvedRatio = aspectRatio || manifestData?.proporcao || "4:3";
+  const resolvedRatio = aspectRatio || (fill ? "auto" : manifestData?.proporcao || "4:3");
 
   const [currentSrc, setCurrentSrc] = useState(resolvedSrc);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentSrc(resolvedSrc);
   }, [resolvedSrc]);
+
+  useEffect(() => {
+    if (imgRef.current && (imgRef.current.complete || imgRef.current.naturalWidth > 0)) {
+      setIsLoaded(true);
+    }
+  }, [currentSrc]);
 
   const ratioClasses: Record<string, string> = {
     "16:9": "aspect-[16/9]",
@@ -62,7 +69,7 @@ export function Photo({
     <div
       className={cn(
         "relative overflow-hidden bg-espresso-light/40 transition-colors duration-500",
-        ratioClasses[resolvedRatio],
+        resolvedRatio !== "auto" && ratioClasses[resolvedRatio],
         className
       )}
       style={{
@@ -70,6 +77,7 @@ export function Photo({
       }}
     >
       <Image
+        ref={imgRef}
         src={currentSrc}
         alt={resolvedAlt}
         fill={fill}
@@ -77,6 +85,7 @@ export function Photo({
         priority={priority}
         loading={priority ? undefined : "lazy"}
         decoding="async"
+        referrerPolicy="no-referrer"
         onLoad={() => setIsLoaded(true)}
         onError={() => {
           // Ordem de prioridade de fallback: webp -> jpg -> png
@@ -87,8 +96,7 @@ export function Photo({
           }
         }}
         className={cn(
-          "object-cover transition-[opacity,transform] duration-800 ease-luxury",
-          isLoaded ? "opacity-100 scale-100" : "opacity-0 scale-[1.08]",
+          "object-cover transition-transform duration-700 ease-luxury",
           imageClassName
         )}
         style={{

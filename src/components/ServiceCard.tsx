@@ -28,6 +28,43 @@ export function ServiceCard({
 }: ServiceCardProps) {
   const cardRef = useRef<HTMLElement>(null);
   const [parallaxY, setParallaxY] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsInView(true);
+      return;
+    }
+
+    const element = cardRef.current;
+    if (!element) return;
+
+    // Se o elemento já está na tela ao carregar a página
+    const rect = element.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      setIsInView(true);
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsInView(true);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.08,
+          rootMargin: "50px 0px -20px 0px",
+        }
+      );
+
+      observer.observe(element);
+      return () => observer.disconnect();
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -66,7 +103,7 @@ export function ServiceCard({
         className
       )}
     >
-      {/* Imagem do Serviço com parallax leve nas fotos */}
+      {/* Imagem do Serviço com fade-in suave e transição de escala (zoom) editorial */}
       <div
         className={cn(
           "relative overflow-hidden bg-espresso-dark",
@@ -74,18 +111,25 @@ export function ServiceCard({
         )}
       >
         <div
-          className="w-full h-full scale-105 transition-transform duration-300 ease-out"
-          style={{ transform: `translate3d(0, ${parallaxY}px, 0)` }}
+          className={cn(
+            "w-full h-full card-image-zoom-reveal",
+            isInView && "is-in-view"
+          )}
         >
-          <Photo
-            id={imageId}
-            fill
-            className="w-full h-full"
-            imageClassName="group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
+          <div
+            className="w-full h-full scale-105 transition-transform duration-300 ease-out"
+            style={{ transform: `translate3d(0, ${parallaxY}px, 0)` }}
+          >
+            <Photo
+              id={imageId}
+              fill
+              className="w-full h-full"
+              imageClassName="group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1B120E]/90 via-transparent to-transparent md:hidden" />
       </div>
 
       {/* Conteúdo do Card */}

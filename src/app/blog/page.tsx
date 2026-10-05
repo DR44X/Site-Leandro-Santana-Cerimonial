@@ -41,7 +41,7 @@ export default function BlogIndexPage() {
                     referrerPolicy="no-referrer"
                     sizes="(max-width: 1024px) 100vw, 60vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent lg:hidden" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0908]/90 via-[#0B0908]/30 to-transparent lg:hidden" />
                 </div>
 
                 <div className="lg:col-span-5 p-6 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
@@ -117,7 +117,7 @@ export default function BlogIndexPage() {
                       referrerPolicy="no-referrer"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1B120E] via-transparent to-transparent opacity-80" />
                   </div>
 
                   <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-5">

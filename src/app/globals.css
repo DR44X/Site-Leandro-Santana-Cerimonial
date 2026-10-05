@@ -53,6 +53,43 @@ html.light {
   --gold-dark-rgb: 135 102 48;
 }
 
+/* Garante que sombras de imagens, molduras e cartões no tema claro sejam profundas e escuras como no tema escuro */
+html.light .shadow-2xl,
+html.light .shadow-xl,
+html.light .shadow-lg,
+html.light .arch-frame,
+html.light .arch-frame-sm {
+  box-shadow: 0 25px 50px -12px rgba(11, 9, 8, 0.45), 0 10px 25px -5px rgba(11, 9, 8, 0.3) !important;
+}
+
+html.light .hover\:shadow-2xl:hover {
+  box-shadow: 0 30px 60px -15px rgba(11, 9, 8, 0.55), 0 15px 30px -8px rgba(11, 9, 8, 0.35) !important;
+}
+
+/* ========================================================
+   EFEITO SUAVE DE FADE-IN COM TRANSIÇÃO DE ESCALA (ZOOM)
+   Para imagens de cards (EventCard e ServiceCard)
+   ======================================================== */
+.card-image-zoom-reveal {
+  opacity: 0;
+  transform: scale(1.10);
+  transition: opacity 1000ms var(--ease-luxury), transform 1100ms var(--ease-luxury);
+  will-change: opacity, transform;
+}
+
+.card-image-zoom-reveal.is-in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-image-zoom-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

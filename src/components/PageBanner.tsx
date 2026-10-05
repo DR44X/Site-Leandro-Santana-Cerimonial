@@ -26,7 +26,7 @@ export function PageBanner({
         className
       )}
     >
-      {/* Imagem de Fundo com Overlay */}
+      {/* Imagem de Fundo com Overlay de Sombra Escura */}
       <div className="absolute inset-0 z-0">
         <Image
           src={imageSrc}
@@ -36,7 +36,7 @@ export function PageBanner({
           sizes="100vw"
           className="object-cover object-center opacity-25 animate-hero-zoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-espresso-dark via-espresso-dark/80 to-ink/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1B120E] via-[#1B120E]/85 to-[#0B0908]/75" />
       </div>
 
       {/* Conteúdo */}
@@ -51,12 +51,12 @@ export function PageBanner({
             </div>
           )}
 
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-ivory font-normal leading-tight">
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#F6F0E6] font-normal leading-tight">
             {title}
           </h1>
 
           {subtitle && (
-            <p className="text-base sm:text-lg text-ivory/80 font-sans font-light max-w-2xl leading-relaxed pt-2">
+            <p className="text-base sm:text-lg text-[#F6F0E6]/85 font-sans font-light max-w-2xl leading-relaxed pt-2">
               {subtitle}
             </p>
           )}

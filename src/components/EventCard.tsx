@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { Photo } from "@/components/Photo";
 import { cn } from "@/lib/utils";
@@ -23,9 +25,48 @@ export function EventCard({
   className,
 }: EventCardProps) {
   const isLarge = variant === "large";
+  const cardRef = useRef<HTMLAnchorElement>(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsInView(true);
+      return;
+    }
+
+    const element = cardRef.current;
+    if (!element) return;
+
+    // Se o elemento já está na tela ao carregar a página
+    const rect = element.getBoundingClientRect();
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "50px 0px -20px 0px",
+      }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Link
+      ref={cardRef}
       href={`/eventos/${slug}`}
       className={cn(
         "group relative flex flex-col justify-end overflow-hidden border border-gold/20 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] bg-espresso-dark min-h-[380px]",
@@ -34,8 +75,13 @@ export function EventCard({
       )}
       aria-label={`Ver detalhes sobre ${title}`}
     >
-      {/* Imagem de Fundo com Photo e zoom 1.05 no hover */}
-      <div className="absolute inset-0 z-0">
+      {/* Imagem de Fundo com fade-in suave e transição de escala (zoom) editorial */}
+      <div
+        className={cn(
+          "absolute inset-0 z-0 overflow-hidden card-image-zoom-reveal",
+          isInView && "is-in-view"
+        )}
+      >
         <Photo
           id={imageId}
           fill
@@ -43,8 +89,8 @@ export function EventCard({
           imageClassName="group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        {/* Camada gradiente escura para contraste editorial */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/65 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+        {/* Camada gradiente escura para contraste editorial (mantida escura em ambos os temas) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0908] via-[#0B0908]/75 to-transparent transition-opacity duration-500 group-hover:opacity-95" />
       </div>
 
       {/* Conteúdo Sobreposto */}
@@ -73,12 +119,12 @@ export function EventCard({
         </div>
 
         {/* Título do Evento */}
-        <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-ivory group-hover:text-champagne transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] font-normal">
+        <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#F6F0E6] group-hover:text-champagne transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] font-normal">
           {title}
         </h3>
 
         {/* Descrição Curta */}
-        <p className="mt-2 text-xs sm:text-sm text-ivory/80 font-sans line-clamp-2 leading-relaxed font-light">
+        <p className="mt-2 text-xs sm:text-sm text-[#F6F0E6]/85 font-sans line-clamp-2 leading-relaxed font-light">
           {description}
         </p>
 

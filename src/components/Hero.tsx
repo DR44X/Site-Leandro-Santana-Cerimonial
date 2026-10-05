@@ -53,9 +53,9 @@ export function Hero({
           </div>
         )}
 
-        {/* Overlays sutis para legibilidade impecável sem escurecer demais */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20" />
-        <div className="absolute inset-0 bg-espresso-dark/30 mix-blend-multiply" />
+        {/* Overlays para legibilidade com sombras escuras preservadas em ambos os temas */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0908] via-[#0B0908]/70 to-[#0B0908]/25" />
+        <div className="absolute inset-0 bg-[#1B120E]/30 mix-blend-multiply" />
       </div>
 
       {/* Conteúdo Ancorado na Parte Inferior Esquerda com Entrada em Sequência */}
@@ -70,12 +70,12 @@ export function Hero({
           </div>
 
           {/* 2. Título Principal em Sequência */}
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] leading-[1.05] tracking-tight text-ivory font-normal text-balance animate-hero-title">
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] leading-[1.05] tracking-tight text-[#F6F0E6] font-normal text-balance animate-hero-title">
             {title}
           </h1>
 
           {/* 3. Subtítulo em Sequência */}
-          <p className="text-base sm:text-lg md:text-xl text-ivory/85 font-sans font-light max-w-2xl leading-relaxed animate-hero-subtitle">
+          <p className="text-base sm:text-lg md:text-xl text-[#F6F0E6]/90 font-sans font-light max-w-2xl leading-relaxed animate-hero-subtitle">
             {subtitle}
           </p>
 

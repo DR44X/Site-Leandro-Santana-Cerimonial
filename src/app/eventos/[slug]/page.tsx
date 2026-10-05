@@ -194,15 +194,17 @@ export default async function EventDetailPage({ params }: EventDetailPageProps) 
                     key={idx}
                     className="border border-gold/20 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-luxury aspect-[3/4] relative overflow-hidden group bg-espresso"
                   >
-                    <Photo
-                      id={imgId}
-                      fill
-                      className="w-full h-full"
-                      imageClassName="group-hover:scale-105 transition-transform duration-700 ease-luxury"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-luxury p-6 flex flex-col justify-end">
-                      <p className="text-xs text-ivory/90 font-sans">{imgData.alt}</p>
+                    <div className="absolute inset-0 w-full h-full">
+                      <Photo
+                        id={imgId}
+                        fill
+                        className="w-full h-full absolute inset-0"
+                        imageClassName="group-hover:scale-105 transition-transform duration-700 ease-luxury"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0908]/95 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-luxury p-6 flex flex-col justify-end">
+                      <p className="text-xs text-[#F6F0E6]/90 font-sans">{imgData.alt}</p>
                     </div>
                   </div>
                 );

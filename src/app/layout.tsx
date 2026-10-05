@@ -8,18 +8,18 @@ import { MobileCtaBar } from "@/components/MobileCtaBar";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { ScrollRevealProvider } from "@/components/ScrollRevealProvider";
+import { ScrollProgressBar } from "@/components/ScrollProgressBar";
 import { siteConfig } from "@/content/site";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   variable: "--font-cormorant",
   display: "swap",
 });
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -108,10 +108,38 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Schema.org WebSite JSON-LD (fortalece a visibilidade da marca Leandro Santana Cerimonial no Google)
+  const websiteSchema = {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    url: siteUrl,
+    name: siteConfig.name,
+    alternateName: [
+      "Leandro Santana",
+      "Leandro Santana Cerimonial",
+      "Leandro Santana Cerimonial e Eventos",
+      "Cerimonial Leandro Santana Salvador",
+      "DeCasa Cerimonial",
+    ],
+    description: siteConfig.description,
+    inLanguage: "pt-BR",
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteUrl}/?s={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   // Schema.org LocalBusiness & EventPlanner JSON-LD
-  const jsonLd = {
-    "@context": "https://schema.org",
+  const organizationSchema = {
     "@type": ["LocalBusiness", "EventPlanner"],
+    "@id": `${siteUrl}/#organization`,
     name: siteConfig.name,
     description: siteConfig.description,
     telephone: siteConfig.phone.display,
@@ -145,6 +173,11 @@ export default function RootLayout({
     ],
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [websiteSchema, organizationSchema],
+  };
+
   return (
     <html lang="pt-BR" className={`${cormorant.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
@@ -160,6 +193,9 @@ export default function RootLayout({
       </head>
       <body className="font-sans bg-ink text-ivory antialiased selection:bg-gold selection:text-ink min-h-screen flex flex-col">
         <ThemeProvider>
+          {/* Barra superior de progresso de rolagem */}
+          <ScrollProgressBar />
+
           {/* Suavidade no scroll com Lenis (Desktop) */}
           <SmoothScroll />
 

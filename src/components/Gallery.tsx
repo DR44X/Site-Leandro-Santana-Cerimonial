@@ -48,26 +48,50 @@ export function Gallery({
     setSelectedPhotoIndex((prev) => (prev! < displayedItems.length - 1 ? prev! + 1 : 0));
   };
 
+  // Contagem de itens por categoria
+  const counts: Record<string, number> = {
+    todos: galleryItems.length,
+    casamentos: galleryItems.filter((i) => i.category === "casamentos").length,
+    "15-anos": galleryItems.filter((i) => i.category === "15-anos").length,
+    formaturas: galleryItems.filter((i) => i.category === "formaturas").length,
+    decoracao: galleryItems.filter((i) => i.category === "decoracao").length,
+    buffet: galleryItems.filter((i) => i.category === "buffet").length,
+    "momentos-especiais": galleryItems.filter((i) => i.category === "momentos-especiais").length,
+  };
+
   return (
     <div className={cn("w-full space-y-10", className)}>
-      {/* Barra de Filtros Instantâneos (7 filtros obrigatórios) */}
+      {/* Barra de Filtros Instantâneos (7 filtros com contagem) */}
       {showFilters && (
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-2 border-b border-gold/15">
           {galleryFilters.map((filter) => {
             const isActive = activeFilter === filter.key;
+            const count = counts[filter.key];
             return (
               <button
                 key={filter.key}
                 type="button"
                 onClick={() => setActiveFilter(filter.key)}
                 className={cn(
-                  "px-4 py-2 text-xs uppercase tracking-editorial rounded-full transition-all duration-300 font-sans min-h-[44px] focus-visible:outline-2 focus-visible:outline-gold",
+                  "px-4 py-2 text-xs uppercase tracking-editorial rounded-full transition-all duration-300 font-sans min-h-[44px] flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-gold cursor-pointer",
                   isActive
                     ? "bg-gold text-ink font-medium shadow-md"
                     : "text-ivory/70 hover:text-gold hover:bg-espresso/50 border border-transparent"
                 )}
               >
-                {filter.label}
+                <span>{filter.label}</span>
+                {typeof count === "number" && (
+                  <span
+                    className={cn(
+                      "text-[10px] px-1.5 py-0.2 rounded-full",
+                      isActive
+                        ? "bg-ink/20 text-ink font-semibold"
+                        : "bg-gold/10 text-gold/70"
+                    )}
+                  >
+                    {count}
+                  </span>
+                )}
               </button>
             );
           })}
@@ -75,7 +99,7 @@ export function Gallery({
       )}
 
       {/* Grid Editorial (Mosaico / Masonry) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 reveal-stagger">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {displayedItems.map((item, index) => {
           const isTall = item.span === "tall";
           const isWide = item.span === "wide";
@@ -86,33 +110,35 @@ export function Gallery({
               type="button"
               onClick={() => handleOpenLightbox(index)}
               className={cn(
-                "group relative block overflow-hidden text-left bg-espresso border border-gold/15 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer focus-visible:outline-2 focus-visible:outline-gold",
+                "group relative w-full block overflow-hidden text-left bg-espresso border border-gold/15 hover:border-gold hover:-translate-y-1 hover:shadow-2xl transition-all duration-500 ease-luxury cursor-pointer focus-visible:outline-2 focus-visible:outline-gold",
                 isWide ? "sm:col-span-2 aspect-[16/9]" : isTall ? "aspect-[3/4]" : "aspect-[4/3]"
               )}
               aria-label={`Ver foto: ${item.title}`}
             >
-              <Photo
-                id={item.imageId}
-                fill
-                className="w-full h-full"
-                imageClassName="group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              <div className="absolute inset-0 w-full h-full">
+                <Photo
+                  id={item.imageId}
+                  fill
+                  className="w-full h-full absolute inset-0"
+                  imageClassName="group-hover:scale-105 transition-transform duration-700 ease-luxury"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
 
-              {/* Overlay de Hover com Informações */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-end p-6">
+              {/* Overlay de Hover com Informações (sombra escura mantida em ambos os temas) */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0908]/95 via-[#0B0908]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-luxury flex flex-col justify-end p-6">
                 <span className="text-[10px] uppercase tracking-widest text-gold font-sans font-medium">
                   {item.category.replace("-", " ")}
                 </span>
-                <h4 className="font-serif text-xl sm:text-2xl text-ivory font-normal mt-1">
+                <h4 className="font-serif text-xl sm:text-2xl text-[#F6F0E6] font-normal mt-1">
                   {item.title}
                 </h4>
-                <p className="text-xs text-ivory/75 font-sans font-light mt-1 line-clamp-1">
+                <p className="text-xs text-[#F6F0E6]/85 font-sans font-light mt-1 line-clamp-1">
                   {item.subtitle}
                 </p>
                 <div className="mt-3 flex items-center gap-2 text-[11px] text-gold uppercase tracking-wider">
                   <span>Ampliar fotografia</span>
-                  <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">↗</span>
+                  <span className="group-hover:translate-x-[6px] transition-transform duration-500 ease-luxury">↗</span>
                 </div>
               </div>
             </button>

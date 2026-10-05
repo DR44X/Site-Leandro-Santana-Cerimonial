@@ -31,13 +31,13 @@ export function ScrollRevealProvider({ children }: { children: React.ReactNode }
     };
 
     const observer = new IntersectionObserver(observerCallback, {
-      rootMargin: "0px 0px -40px 0px",
-      threshold: 0.1,
+      rootMargin: "50px 0px -10px 0px",
+      threshold: 0.01,
     });
 
     const lineObserver = new IntersectionObserver(lineObserverCallback, {
-      rootMargin: "0px 0px -20px 0px",
-      threshold: 0.2,
+      rootMargin: "50px 0px -10px 0px",
+      threshold: 0.05,
     });
 
     // Observa elementos normais de revelação e containers escalonados
@@ -45,7 +45,11 @@ export function ScrollRevealProvider({ children }: { children: React.ReactNode }
       ".reveal, .reveal-stagger, [data-reveal]"
     );
     revealElements.forEach((el) => {
-      if (!el.classList.contains("is-revealed")) {
+      const rect = el.getBoundingClientRect();
+      // Revela imediatamente se já está no viewport inicial
+      if (rect.top <= window.innerHeight) {
+        el.classList.add("is-revealed");
+      } else if (!el.classList.contains("is-revealed")) {
         observer.observe(el);
       }
     });
@@ -55,7 +59,10 @@ export function ScrollRevealProvider({ children }: { children: React.ReactNode }
       ".gold-line-draw, [data-draw-line]"
     );
     lineElements.forEach((el) => {
-      if (!el.classList.contains("is-drawn")) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= window.innerHeight) {
+        el.classList.add("is-drawn");
+      } else if (!el.classList.contains("is-drawn")) {
         lineObserver.observe(el);
       }
     });

@@ -5,6 +5,7 @@ import { Photo } from "@/components/Photo";
 import { Button } from "@/components/Button";
 import { MiniFAQ } from "@/components/MiniFAQ";
 import { CTA } from "@/components/CTA";
+import { ServicesIndexNav } from "@/components/ServicesIndexNav";
 import { servicesData } from "@/content/servicos";
 
 export const metadata = {
@@ -34,25 +35,8 @@ export default function ServicosPage() {
         imageAlt="Salão decorado com mesa de banquete e iluminação cênica"
       />
 
-      {/* Índice Rápido Editorial */}
-      <nav aria-label="Índice dos serviços" className="bg-espresso-dark py-6 border-b border-gold/15 sticky top-[68px] z-30 backdrop-blur-md bg-espresso-dark/95">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-6 overflow-x-auto pb-2 scrollbar-none text-xs uppercase tracking-widest text-ivory/70">
-            <span className="text-gold font-serif text-sm font-medium pr-2 border-r border-gold/30 flex-shrink-0">
-              Índice 01–07:
-            </span>
-            {servicesData.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="hover:text-gold transition-colors flex-shrink-0 whitespace-nowrap focus-visible:outline-1 focus-visible:outline-gold"
-              >
-                <span className="text-gold/60 mr-1">{s.number}</span> {s.title}
-              </a>
-            ))}
-          </div>
-        </div>
-      </nav>
+      {/* Índice Rápido Editorial com ScrollSpy e rolagem suave */}
+      <ServicesIndexNav services={servicesData} />
 
       {/* Lista Editorial dos 7 Serviços com Layout Alternado */}
       <section className="py-20 md:py-32 bg-ink relative overflow-hidden bg-grain">

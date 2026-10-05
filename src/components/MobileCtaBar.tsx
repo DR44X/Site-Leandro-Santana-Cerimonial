@@ -8,7 +8,7 @@ export function MobileCtaBar() {
   const pathname = usePathname();
 
   // If already on /orcamentos, don't show the redundant bar
-  if (pathname === "/orcamentos") {
+  if (pathname === "/orcamentos" || pathname === "/orcamentos/") {
     return null;
   }
 
